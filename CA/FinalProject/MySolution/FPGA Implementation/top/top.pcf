@@ -1,0 +1,209 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Mon Jul 04 23:37:51 2022
+//! **************************************************************************
+
+SCHEMATIC START;
+CONFIG VCCAUX = "3.3";
+COMP "clk" LOCATE = SITE "P56" LEVEL 1;
+COMP "WriteData<0>" LOCATE = SITE "P134" LEVEL 1;
+COMP "WriteData<1>" LOCATE = SITE "P133" LEVEL 1;
+COMP "WriteData<2>" LOCATE = SITE "P132" LEVEL 1;
+COMP "WriteData<3>" LOCATE = SITE "P131" LEVEL 1;
+COMP "WriteData<4>" LOCATE = SITE "P127" LEVEL 1;
+COMP "DataAdr<0>" LOCATE = SITE "P124" LEVEL 1;
+COMP "DataAdr<1>" LOCATE = SITE "P123" LEVEL 1;
+COMP "DataAdr<2>" LOCATE = SITE "P111" LEVEL 1;
+COMP "DataAdr<3>" LOCATE = SITE "P112" LEVEL 1;
+COMP "DataAdr<4>" LOCATE = SITE "P114" LEVEL 1;
+COMP "DataAdr<5>" LOCATE = SITE "P115" LEVEL 1;
+COMP "DataAdr<6>" LOCATE = SITE "P116" LEVEL 1;
+COMP "DataAdr<7>" LOCATE = SITE "P117" LEVEL 1;
+TIMEGRP clk = BEL "mem/Mram_RAM3" BEL "mem/Mram_RAM1" BEL "mem/Mram_RAM2" BEL
+        "mem/Mram_RAM4" BEL "mem/Mram_RAM5" BEL "mem/Mram_RAM8" BEL
+        "mem/Mram_RAM6" BEL "mem/Mram_RAM7" BEL "mem/Mram_RAM9" BEL
+        "mem/Mram_RAM10" BEL "mem/Mram_RAM11" BEL "mem/Mram_RAM12" BEL
+        "mem/Mram_RAM13" BEL "mem/Mram_RAM14" BEL "mem/Mram_RAM17" BEL
+        "mem/Mram_RAM15" BEL "mem/Mram_RAM16" BEL "mem/Mram_RAM18" BEL
+        "mem/Mram_RAM19" BEL "mem/Mram_RAM20" BEL "mem/Mram_RAM21" BEL
+        "mem/Mram_RAM22" BEL "mem/Mram_RAM23" BEL "mem/Mram_RAM26" BEL
+        "mem/Mram_RAM24" BEL "mem/Mram_RAM25" BEL "mem/Mram_RAM27" BEL
+        "mem/Mram_RAM28" BEL "mem/Mram_RAM29" BEL "mem/Mram_RAM30" BEL
+        "mem/Mram_RAM31" BEL "mem/Mram_RAM32" BEL "rvmulti/nextPcReg/q_31" BEL
+        "rvmulti/nextPcReg/q_30" BEL "rvmulti/nextPcReg/q_29" BEL
+        "rvmulti/nextPcReg/q_28" BEL "rvmulti/nextPcReg/q_27" BEL
+        "rvmulti/nextPcReg/q_26" BEL "rvmulti/nextPcReg/q_25" BEL
+        "rvmulti/nextPcReg/q_24" BEL "rvmulti/nextPcReg/q_23" BEL
+        "rvmulti/nextPcReg/q_22" BEL "rvmulti/nextPcReg/q_21" BEL
+        "rvmulti/nextPcReg/q_20" BEL "rvmulti/nextPcReg/q_19" BEL
+        "rvmulti/nextPcReg/q_18" BEL "rvmulti/nextPcReg/q_17" BEL
+        "rvmulti/nextPcReg/q_16" BEL "rvmulti/nextPcReg/q_15" BEL
+        "rvmulti/nextPcReg/q_14" BEL "rvmulti/nextPcReg/q_13" BEL
+        "rvmulti/nextPcReg/q_12" BEL "rvmulti/nextPcReg/q_11" BEL
+        "rvmulti/nextPcReg/q_10" BEL "rvmulti/nextPcReg/q_9" BEL
+        "rvmulti/nextPcReg/q_8" BEL "rvmulti/nextPcReg/q_7" BEL
+        "rvmulti/nextPcReg/q_6" BEL "rvmulti/nextPcReg/q_5" BEL
+        "rvmulti/nextPcReg/q_4" BEL "rvmulti/nextPcReg/q_3" BEL
+        "rvmulti/nextPcReg/q_2" BEL "rvmulti/nextPcReg/q_1" BEL
+        "rvmulti/nextPcReg/q_0" BEL "rvmulti/dataSaver/q_31" BEL
+        "rvmulti/dataSaver/q_30" BEL "rvmulti/dataSaver/q_29" BEL
+        "rvmulti/dataSaver/q_28" BEL "rvmulti/dataSaver/q_27" BEL
+        "rvmulti/dataSaver/q_26" BEL "rvmulti/dataSaver/q_25" BEL
+        "rvmulti/dataSaver/q_24" BEL "rvmulti/dataSaver/q_23" BEL
+        "rvmulti/dataSaver/q_22" BEL "rvmulti/dataSaver/q_21" BEL
+        "rvmulti/dataSaver/q_20" BEL "rvmulti/dataSaver/q_19" BEL
+        "rvmulti/dataSaver/q_18" BEL "rvmulti/dataSaver/q_17" BEL
+        "rvmulti/dataSaver/q_16" BEL "rvmulti/dataSaver/q_15" BEL
+        "rvmulti/dataSaver/q_14" BEL "rvmulti/dataSaver/q_13" BEL
+        "rvmulti/dataSaver/q_12" BEL "rvmulti/dataSaver/q_11" BEL
+        "rvmulti/dataSaver/q_10" BEL "rvmulti/dataSaver/q_9" BEL
+        "rvmulti/dataSaver/q_8" BEL "rvmulti/dataSaver/q_7" BEL
+        "rvmulti/dataSaver/q_6" BEL "rvmulti/dataSaver/q_5" BEL
+        "rvmulti/dataSaver/q_4" BEL "rvmulti/dataSaver/q_3" BEL
+        "rvmulti/dataSaver/q_2" BEL "rvmulti/dataSaver/q_1" BEL
+        "rvmulti/dataSaver/q_0" BEL "rvmulti/dp/rd1Saver/q_0" BEL
+        "rvmulti/dp/rd1Saver/q_1" BEL "rvmulti/dp/rd1Saver/q_2" BEL
+        "rvmulti/dp/rd1Saver/q_3" BEL "rvmulti/dp/rd1Saver/q_4" BEL
+        "rvmulti/dp/rd1Saver/q_5" BEL "rvmulti/dp/rd1Saver/q_6" BEL
+        "rvmulti/dp/rd1Saver/q_7" BEL "rvmulti/dp/rd1Saver/q_8" BEL
+        "rvmulti/dp/rd1Saver/q_9" BEL "rvmulti/dp/rd1Saver/q_10" BEL
+        "rvmulti/dp/rd1Saver/q_11" BEL "rvmulti/dp/rd1Saver/q_12" BEL
+        "rvmulti/dp/rd1Saver/q_13" BEL "rvmulti/dp/rd1Saver/q_14" BEL
+        "rvmulti/dp/rd1Saver/q_15" BEL "rvmulti/dp/rd1Saver/q_16" BEL
+        "rvmulti/dp/rd1Saver/q_17" BEL "rvmulti/dp/rd1Saver/q_18" BEL
+        "rvmulti/dp/rd1Saver/q_19" BEL "rvmulti/dp/rd1Saver/q_20" BEL
+        "rvmulti/dp/rd1Saver/q_21" BEL "rvmulti/dp/rd1Saver/q_22" BEL
+        "rvmulti/dp/rd1Saver/q_23" BEL "rvmulti/dp/rd1Saver/q_24" BEL
+        "rvmulti/dp/rd1Saver/q_25" BEL "rvmulti/dp/rd1Saver/q_26" BEL
+        "rvmulti/dp/rd1Saver/q_27" BEL "rvmulti/dp/rd1Saver/q_28" BEL
+        "rvmulti/dp/rd1Saver/q_29" BEL "rvmulti/dp/rd1Saver/q_30" BEL
+        "rvmulti/dp/rd1Saver/q_31" BEL "rvmulti/dp/rd2Saver/q_0" BEL
+        "rvmulti/dp/rd2Saver/q_1" BEL "rvmulti/dp/rd2Saver/q_2" BEL
+        "rvmulti/dp/rd2Saver/q_3" BEL "rvmulti/dp/rd2Saver/q_4" BEL
+        "rvmulti/dp/rd2Saver/q_5" BEL "rvmulti/dp/rd2Saver/q_6" BEL
+        "rvmulti/dp/rd2Saver/q_7" BEL "rvmulti/dp/rd2Saver/q_8" BEL
+        "rvmulti/dp/rd2Saver/q_9" BEL "rvmulti/dp/rd2Saver/q_10" BEL
+        "rvmulti/dp/rd2Saver/q_11" BEL "rvmulti/dp/rd2Saver/q_12" BEL
+        "rvmulti/dp/rd2Saver/q_13" BEL "rvmulti/dp/rd2Saver/q_14" BEL
+        "rvmulti/dp/rd2Saver/q_15" BEL "rvmulti/dp/rd2Saver/q_16" BEL
+        "rvmulti/dp/rd2Saver/q_17" BEL "rvmulti/dp/rd2Saver/q_18" BEL
+        "rvmulti/dp/rd2Saver/q_19" BEL "rvmulti/dp/rd2Saver/q_20" BEL
+        "rvmulti/dp/rd2Saver/q_21" BEL "rvmulti/dp/rd2Saver/q_22" BEL
+        "rvmulti/dp/rd2Saver/q_23" BEL "rvmulti/dp/rd2Saver/q_24" BEL
+        "rvmulti/dp/rd2Saver/q_25" BEL "rvmulti/dp/rd2Saver/q_26" BEL
+        "rvmulti/dp/rd2Saver/q_27" BEL "rvmulti/dp/rd2Saver/q_28" BEL
+        "rvmulti/dp/rd2Saver/q_29" BEL "rvmulti/dp/rd2Saver/q_30" BEL
+        "rvmulti/dp/rd2Saver/q_31" BEL "rvmulti/dp/aluSaver/q_0" BEL
+        "rvmulti/dp/aluSaver/q_1" BEL "rvmulti/dp/aluSaver/q_2" BEL
+        "rvmulti/dp/aluSaver/q_3" BEL "rvmulti/dp/aluSaver/q_4" BEL
+        "rvmulti/dp/aluSaver/q_5" BEL "rvmulti/dp/aluSaver/q_6" BEL
+        "rvmulti/dp/aluSaver/q_7" BEL "rvmulti/dp/aluSaver/q_8" BEL
+        "rvmulti/dp/aluSaver/q_9" BEL "rvmulti/dp/aluSaver/q_10" BEL
+        "rvmulti/dp/aluSaver/q_11" BEL "rvmulti/dp/aluSaver/q_12" BEL
+        "rvmulti/dp/aluSaver/q_13" BEL "rvmulti/dp/aluSaver/q_14" BEL
+        "rvmulti/dp/aluSaver/q_15" BEL "rvmulti/dp/aluSaver/q_16" BEL
+        "rvmulti/dp/aluSaver/q_17" BEL "rvmulti/dp/aluSaver/q_18" BEL
+        "rvmulti/dp/aluSaver/q_19" BEL "rvmulti/dp/aluSaver/q_20" BEL
+        "rvmulti/dp/aluSaver/q_21" BEL "rvmulti/dp/aluSaver/q_22" BEL
+        "rvmulti/dp/aluSaver/q_23" BEL "rvmulti/dp/aluSaver/q_24" BEL
+        "rvmulti/dp/aluSaver/q_25" BEL "rvmulti/dp/aluSaver/q_26" BEL
+        "rvmulti/dp/aluSaver/q_27" BEL "rvmulti/dp/aluSaver/q_28" BEL
+        "rvmulti/dp/aluSaver/q_29" BEL "rvmulti/dp/aluSaver/q_30" BEL
+        "rvmulti/dp/aluSaver/q_31" BEL "rvmulti/dp/pcSaver/q_0" BEL
+        "rvmulti/dp/pcSaver/q_1" BEL "rvmulti/dp/pcSaver/q_2" BEL
+        "rvmulti/dp/pcSaver/q_3" BEL "rvmulti/dp/pcSaver/q_4" BEL
+        "rvmulti/dp/pcSaver/q_5" BEL "rvmulti/dp/pcSaver/q_6" BEL
+        "rvmulti/dp/pcSaver/q_7" BEL "rvmulti/dp/pcSaver/q_8" BEL
+        "rvmulti/dp/pcSaver/q_9" BEL "rvmulti/dp/pcSaver/q_10" BEL
+        "rvmulti/dp/pcSaver/q_11" BEL "rvmulti/dp/pcSaver/q_12" BEL
+        "rvmulti/dp/pcSaver/q_13" BEL "rvmulti/dp/pcSaver/q_14" BEL
+        "rvmulti/dp/pcSaver/q_15" BEL "rvmulti/dp/pcSaver/q_16" BEL
+        "rvmulti/dp/pcSaver/q_17" BEL "rvmulti/dp/pcSaver/q_18" BEL
+        "rvmulti/dp/pcSaver/q_19" BEL "rvmulti/dp/pcSaver/q_20" BEL
+        "rvmulti/dp/pcSaver/q_21" BEL "rvmulti/dp/pcSaver/q_22" BEL
+        "rvmulti/dp/pcSaver/q_23" BEL "rvmulti/dp/pcSaver/q_24" BEL
+        "rvmulti/dp/pcSaver/q_25" BEL "rvmulti/dp/pcSaver/q_26" BEL
+        "rvmulti/dp/pcSaver/q_27" BEL "rvmulti/dp/pcSaver/q_28" BEL
+        "rvmulti/dp/pcSaver/q_29" BEL "rvmulti/dp/pcSaver/q_30" BEL
+        "rvmulti/dp/pcSaver/q_31" BEL "rvmulti/c/fsm/curState_FSM_FFd2" BEL
+        "rvmulti/c/fsm/curState_FSM_FFd10" BEL
+        "rvmulti/c/fsm/curState_FSM_FFd1" BEL
+        "rvmulti/c/fsm/curState_FSM_FFd4" BEL
+        "rvmulti/c/fsm/curState_FSM_FFd5" BEL
+        "rvmulti/c/fsm/curState_FSM_FFd3" BEL
+        "rvmulti/c/fsm/curState_FSM_FFd7" BEL
+        "rvmulti/c/fsm/curState_FSM_FFd8" BEL
+        "rvmulti/c/fsm/curState_FSM_FFd6" BEL
+        "rvmulti/c/fsm/curState_FSM_FFd11" BEL
+        "rvmulti/c/fsm/curState_FSM_FFd9" BEL "rvmulti/dp/nextPcReg/q_0" BEL
+        "rvmulti/dp/nextPcReg/q_1" BEL "rvmulti/dp/nextPcReg/q_2" BEL
+        "rvmulti/dp/nextPcReg/q_3" BEL "rvmulti/dp/nextPcReg/q_4" BEL
+        "rvmulti/dp/nextPcReg/q_5" BEL "rvmulti/dp/nextPcReg/q_6" BEL
+        "rvmulti/dp/nextPcReg/q_7" BEL "rvmulti/dp/nextPcReg/q_8" BEL
+        "rvmulti/dp/nextPcReg/q_9" BEL "rvmulti/dp/nextPcReg/q_10" BEL
+        "rvmulti/dp/nextPcReg/q_11" BEL "rvmulti/dp/nextPcReg/q_12" BEL
+        "rvmulti/dp/nextPcReg/q_13" BEL "rvmulti/dp/nextPcReg/q_14" BEL
+        "rvmulti/dp/nextPcReg/q_15" BEL "rvmulti/dp/nextPcReg/q_16" BEL
+        "rvmulti/dp/nextPcReg/q_17" BEL "rvmulti/dp/nextPcReg/q_18" BEL
+        "rvmulti/dp/nextPcReg/q_19" BEL "rvmulti/dp/nextPcReg/q_20" BEL
+        "rvmulti/dp/nextPcReg/q_21" BEL "rvmulti/dp/nextPcReg/q_22" BEL
+        "rvmulti/dp/nextPcReg/q_23" BEL "rvmulti/dp/nextPcReg/q_24" BEL
+        "rvmulti/dp/nextPcReg/q_25" BEL "rvmulti/dp/nextPcReg/q_26" BEL
+        "rvmulti/dp/nextPcReg/q_27" BEL "rvmulti/dp/nextPcReg/q_28" BEL
+        "rvmulti/dp/nextPcReg/q_29" BEL "rvmulti/dp/nextPcReg/q_30" BEL
+        "rvmulti/dp/nextPcReg/q_31" BEL "rvmulti/c/fsm/curState_FSM_FFd11_1"
+        BEL "rvmulti/c/fsm/curState_FSM_FFd6_1" BEL "rvmulti/nextPcReg/q_20_1"
+        BEL "rvmulti/c/fsm/curState_FSM_FFd10_1" BEL "clk_BUFGP/BUFG" BEL
+        "rvmulti/dp/rf/Mram_rf62/SP" BEL "rvmulti/dp/rf/Mram_rf62/DP" BEL
+        "rvmulti/dp/rf/Mram_rf61/SP" BEL "rvmulti/dp/rf/Mram_rf61/DP" BEL
+        "rvmulti/dp/rf/Mram_rf161/SP" BEL "rvmulti/dp/rf/Mram_rf161/DP" BEL
+        "rvmulti/dp/rf/Mram_rf162/SP" BEL "rvmulti/dp/rf/Mram_rf162/DP" BEL
+        "rvmulti/dp/rf/Mram_rf1_RAMA_D1" BEL "rvmulti/dp/rf/Mram_rf1_RAMA" BEL
+        "rvmulti/dp/rf/Mram_rf1_RAMB_D1" BEL "rvmulti/dp/rf/Mram_rf1_RAMB" BEL
+        "rvmulti/dp/rf/Mram_rf1_RAMC_D1" BEL "rvmulti/dp/rf/Mram_rf1_RAMC" BEL
+        "rvmulti/dp/rf/Mram_rf1_RAMD_D1" BEL "rvmulti/dp/rf/Mram_rf1_RAMD" BEL
+        "rvmulti/dp/rf/Mram_rf11_RAMA_D1" BEL "rvmulti/dp/rf/Mram_rf11_RAMA"
+        BEL "rvmulti/dp/rf/Mram_rf11_RAMB_D1" BEL
+        "rvmulti/dp/rf/Mram_rf11_RAMB" BEL "rvmulti/dp/rf/Mram_rf11_RAMC_D1"
+        BEL "rvmulti/dp/rf/Mram_rf11_RAMC" BEL
+        "rvmulti/dp/rf/Mram_rf11_RAMD_D1" BEL "rvmulti/dp/rf/Mram_rf11_RAMD"
+        BEL "rvmulti/dp/rf/Mram_rf12_RAMA_D1" BEL
+        "rvmulti/dp/rf/Mram_rf12_RAMA" BEL "rvmulti/dp/rf/Mram_rf12_RAMB_D1"
+        BEL "rvmulti/dp/rf/Mram_rf12_RAMB" BEL
+        "rvmulti/dp/rf/Mram_rf12_RAMC_D1" BEL "rvmulti/dp/rf/Mram_rf12_RAMC"
+        BEL "rvmulti/dp/rf/Mram_rf12_RAMD_D1" BEL
+        "rvmulti/dp/rf/Mram_rf12_RAMD" BEL "rvmulti/dp/rf/Mram_rf13_RAMA_D1"
+        BEL "rvmulti/dp/rf/Mram_rf13_RAMA" BEL
+        "rvmulti/dp/rf/Mram_rf13_RAMB_D1" BEL "rvmulti/dp/rf/Mram_rf13_RAMB"
+        BEL "rvmulti/dp/rf/Mram_rf13_RAMC_D1" BEL
+        "rvmulti/dp/rf/Mram_rf13_RAMC" BEL "rvmulti/dp/rf/Mram_rf13_RAMD_D1"
+        BEL "rvmulti/dp/rf/Mram_rf13_RAMD" BEL
+        "rvmulti/dp/rf/Mram_rf14_RAMA_D1" BEL "rvmulti/dp/rf/Mram_rf14_RAMA"
+        BEL "rvmulti/dp/rf/Mram_rf14_RAMB_D1" BEL
+        "rvmulti/dp/rf/Mram_rf14_RAMB" BEL "rvmulti/dp/rf/Mram_rf14_RAMC_D1"
+        BEL "rvmulti/dp/rf/Mram_rf14_RAMC" BEL
+        "rvmulti/dp/rf/Mram_rf14_RAMD_D1" BEL "rvmulti/dp/rf/Mram_rf14_RAMD"
+        BEL "rvmulti/dp/rf/Mram_rf15_RAMA_D1" BEL
+        "rvmulti/dp/rf/Mram_rf15_RAMA" BEL "rvmulti/dp/rf/Mram_rf15_RAMB_D1"
+        BEL "rvmulti/dp/rf/Mram_rf15_RAMB" BEL
+        "rvmulti/dp/rf/Mram_rf15_RAMC_D1" BEL "rvmulti/dp/rf/Mram_rf15_RAMC"
+        BEL "rvmulti/dp/rf/Mram_rf15_RAMD_D1" BEL
+        "rvmulti/dp/rf/Mram_rf15_RAMD" BEL "rvmulti/dp/rf/Mram_rf2_RAMA_D1"
+        BEL "rvmulti/dp/rf/Mram_rf2_RAMA" BEL "rvmulti/dp/rf/Mram_rf2_RAMB_D1"
+        BEL "rvmulti/dp/rf/Mram_rf2_RAMB" BEL "rvmulti/dp/rf/Mram_rf2_RAMC_D1"
+        BEL "rvmulti/dp/rf/Mram_rf2_RAMC" BEL "rvmulti/dp/rf/Mram_rf2_RAMD_D1"
+        BEL "rvmulti/dp/rf/Mram_rf2_RAMD" BEL "rvmulti/dp/rf/Mram_rf3_RAMA_D1"
+        BEL "rvmulti/dp/rf/Mram_rf3_RAMA" BEL "rvmulti/dp/rf/Mram_rf3_RAMB_D1"
+        BEL "rvmulti/dp/rf/Mram_rf3_RAMB" BEL "rvmulti/dp/rf/Mram_rf3_RAMC_D1"
+        BEL "rvmulti/dp/rf/Mram_rf3_RAMC" BEL "rvmulti/dp/rf/Mram_rf3_RAMD_D1"
+        BEL "rvmulti/dp/rf/Mram_rf3_RAMD" BEL "rvmulti/dp/rf/Mram_rf4_RAMA_D1"
+        BEL "rvmulti/dp/rf/Mram_rf4_RAMA" BEL "rvmulti/dp/rf/Mram_rf4_RAMB_D1"
+        BEL "rvmulti/dp/rf/Mram_rf4_RAMB" BEL "rvmulti/dp/rf/Mram_rf4_RAMC_D1"
+        BEL "rvmulti/dp/rf/Mram_rf4_RAMC" BEL "rvmulti/dp/rf/Mram_rf4_RAMD_D1"
+        BEL "rvmulti/dp/rf/Mram_rf4_RAMD" BEL "rvmulti/dp/rf/Mram_rf5_RAMA_D1"
+        BEL "rvmulti/dp/rf/Mram_rf5_RAMA" BEL "rvmulti/dp/rf/Mram_rf5_RAMB_D1"
+        BEL "rvmulti/dp/rf/Mram_rf5_RAMB" BEL "rvmulti/dp/rf/Mram_rf5_RAMC_D1"
+        BEL "rvmulti/dp/rf/Mram_rf5_RAMC" BEL "rvmulti/dp/rf/Mram_rf5_RAMD_D1"
+        BEL "rvmulti/dp/rf/Mram_rf5_RAMD";
+TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
+SCHEMATIC END;
+

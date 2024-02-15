@@ -1,0 +1,23 @@
+function merge(a, b) {
+    result = LinkedList()
+    cur_elem_of_a = a.first()
+    cur_elem_of_b = b.first()
+
+    while (cur_elem_of_a.next != null && cur_elem_of_b.next != null) {
+        if (cur_elem_of_a.data < cur_elem_of_b.data) {
+            // Insert a
+            result.insert_last(cur_elem_of_a.data)
+            cur_elem_of_a = cur_elem_of_a.next
+        } else {
+            // Insert b
+            result.insert_last(cur_elem_of_b.data)
+            cur_elem_of_b = cur_elem_of_b.next
+        }
+    }
+
+    if (cur_elem_of_a != null) {
+        result.last().next = cur_elem_of_a
+    } else if (cur_elem_of_b != null) {
+        result.last().next = cur_elem_of_b
+    }
+}

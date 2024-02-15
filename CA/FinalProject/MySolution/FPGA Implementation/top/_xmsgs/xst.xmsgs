@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="HDLCompiler" num="189" delta="new" >"C:\Users\maede\Desktop\New folder\top\riscvmulti.v" Line 44: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">ALUControl</arg>&gt;. Formal port size is <arg fmt="%d" index="2">4</arg>-bit while actual signal size is <arg fmt="%d" index="1">3</arg>-bit.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="new" >"C:\Users\maede\Desktop\New folder\top\controller.v" Line 62: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">ALUControl</arg>&gt;. Formal port size is <arg fmt="%d" index="2">4</arg>-bit while actual signal size is <arg fmt="%d" index="1">3</arg>-bit.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1670" delta="new" >"C:\Users\maede\Desktop\New folder\top\mem.v" Line 14: Signal &lt;<arg fmt="%s" index="1">RAM</arg>&gt; in initial block is partially initialized.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">Instr&lt;6:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">a&lt;1:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">a&lt;31:8&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="info" file="Xst" num="1767" delta="new" >HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+</msg>
+
+<msg type="info" file="Xst" num="3218" delta="new" >HDL ADVISOR - The RAM &lt;<arg fmt="%s" index="1">Mram_RAM</arg>&gt; will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+</msg>
+
+<msg type="info" file="Xst" num="3217" delta="new" >HDL ADVISOR - Register &lt;<arg fmt="%s" index="1">q</arg>&gt; currently described with an asynchronous reset, could be combined with distributed RAM &lt;<arg fmt="%s" index="2">Mram_rf</arg>&gt; for implementation on block RAM resources if you made this reset synchronous instead.
+</msg>
+
+<msg type="info" file="Xst" num="3217" delta="new" >HDL ADVISOR - Register &lt;<arg fmt="%s" index="1">q</arg>&gt; currently described with an asynchronous reset, could be combined with distributed RAM &lt;<arg fmt="%s" index="2">Mram_rf1</arg>&gt; for implementation on block RAM resources if you made this reset synchronous instead.
+</msg>
+
+<msg type="info" file="Xst" num="3218" delta="new" >HDL ADVISOR - The RAM &lt;<arg fmt="%s" index="1">Mram_rf</arg>&gt; will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+</msg>
+
+<msg type="info" file="Xst" num="3218" delta="new" >HDL ADVISOR - The RAM &lt;<arg fmt="%s" index="1">Mram_rf1</arg>&gt; will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">Mmult_s_mul</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">alu</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">Mmult_s_mul1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">alu</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">Mmult_s_mul2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">alu</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">Mmult_s_mul3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">alu</arg>&gt;.
+</msg>
+
+</messages>
+

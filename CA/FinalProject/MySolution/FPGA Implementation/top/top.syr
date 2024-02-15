@@ -1,0 +1,1014 @@
+Release 14.7 - xst P.20131013 (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.14 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.14 secs
+ 
+--> Reading design: top.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "top.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "top"
+Output Format                      : NGC
+Target Device                      : xc6slx9-3-tqg144
+
+---- Source Options
+Top Module Name                    : top
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "C:\Users\maede\Desktop\New folder\top\regFile.v" into library work
+Parsing module <regFile>.
+Analyzing Verilog file "C:\Users\maede\Desktop\New folder\top\mux3.v" into library work
+Parsing module <mux3>.
+Analyzing Verilog file "C:\Users\maede\Desktop\New folder\top\mux2.v" into library work
+Parsing module <mux2>.
+Analyzing Verilog file "C:\Users\maede\Desktop\New folder\top\mainfsm.v" into library work
+Parsing module <mainfsm>.
+Analyzing Verilog file "C:\Users\maede\Desktop\New folder\top\instrdec.v" into library work
+Parsing module <instrdec>.
+Analyzing Verilog file "C:\Users\maede\Desktop\New folder\top\flopr.v" into library work
+Parsing module <flopr>.
+Analyzing Verilog file "C:\Users\maede\Desktop\New folder\top\flopenr.v" into library work
+Parsing module <flopenr>.
+Analyzing Verilog file "C:\Users\maede\Desktop\New folder\top\extend.v" into library work
+Parsing module <extend>.
+Analyzing Verilog file "C:\Users\maede\Desktop\New folder\top\aludec.v" into library work
+Parsing module <aludec>.
+Analyzing Verilog file "C:\Users\maede\Desktop\New folder\top\alu.v" into library work
+Parsing module <alu>.
+Analyzing Verilog file "C:\Users\maede\Desktop\New folder\top\DataPath.v" into library work
+Parsing module <DataPath>.
+Analyzing Verilog file "C:\Users\maede\Desktop\New folder\top\controller.v" into library work
+Parsing module <controller>.
+Analyzing Verilog file "C:\Users\maede\Desktop\New folder\top\riscvmulti.v" into library work
+Parsing module <riscvmulti>.
+Analyzing Verilog file "C:\Users\maede\Desktop\New folder\top\mem.v" into library work
+Parsing module <mem>.
+Analyzing Verilog file "C:\Users\maede\Desktop\New folder\top\top.v" into library work
+Parsing module <top>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <top>.
+
+Elaborating module <riscvmulti>.
+
+Elaborating module <flopenr(WIDTH=32)>.
+
+Elaborating module <flopr(WIDTH=32)>.
+
+Elaborating module <DataPath>.
+
+Elaborating module <mux3(WIDTH=32)>.
+
+Elaborating module <regFile>.
+
+Elaborating module <extend>.
+
+Elaborating module <alu>.
+
+Elaborating module <mux2(WIDTH=32)>.
+WARNING:HDLCompiler:189 - "C:\Users\maede\Desktop\New folder\top\riscvmulti.v" Line 44: Size mismatch in connection of port <ALUControl>. Formal port size is 4-bit while actual signal size is 3-bit.
+
+Elaborating module <controller>.
+
+Elaborating module <mainfsm>.
+
+Elaborating module <aludec>.
+WARNING:HDLCompiler:189 - "C:\Users\maede\Desktop\New folder\top\controller.v" Line 62: Size mismatch in connection of port <ALUControl>. Formal port size is 4-bit while actual signal size is 3-bit.
+
+Elaborating module <instrdec>.
+
+Elaborating module <mem>.
+Reading initialization file \"riscvtest.txt\".
+WARNING:HDLCompiler:1670 - "C:\Users\maede\Desktop\New folder\top\mem.v" Line 14: Signal <RAM> in initial block is partially initialized.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <top>.
+    Related source file is "C:\Users\maede\Desktop\New folder\top\top.v".
+    Summary:
+	no macro.
+Unit <top> synthesized.
+
+Synthesizing Unit <riscvmulti>.
+    Related source file is "C:\Users\maede\Desktop\New folder\top\riscvmulti.v".
+    Summary:
+	no macro.
+Unit <riscvmulti> synthesized.
+
+Synthesizing Unit <flopenr>.
+    Related source file is "C:\Users\maede\Desktop\New folder\top\flopenr.v".
+        WIDTH = 32
+    Found 32-bit register for signal <q>.
+    Summary:
+	inferred  32 D-type flip-flop(s).
+Unit <flopenr> synthesized.
+
+Synthesizing Unit <flopr>.
+    Related source file is "C:\Users\maede\Desktop\New folder\top\flopr.v".
+        WIDTH = 32
+    Found 32-bit register for signal <q>.
+    Summary:
+	inferred  32 D-type flip-flop(s).
+Unit <flopr> synthesized.
+
+Synthesizing Unit <DataPath>.
+    Related source file is "C:\Users\maede\Desktop\New folder\top\DataPath.v".
+WARNING:Xst:647 - Input <Instr<6:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <DataPath> synthesized.
+
+Synthesizing Unit <mux3>.
+    Related source file is "C:\Users\maede\Desktop\New folder\top\mux3.v".
+        WIDTH = 32
+    Summary:
+	inferred   2 Multiplexer(s).
+Unit <mux3> synthesized.
+
+Synthesizing Unit <regFile>.
+    Related source file is "C:\Users\maede\Desktop\New folder\top\regFile.v".
+    Found 32x32-bit dual-port RAM <Mram_rf> for signal <rf>.
+    Summary:
+	inferred   2 RAM(s).
+	inferred   2 Multiplexer(s).
+Unit <regFile> synthesized.
+
+Synthesizing Unit <extend>.
+    Related source file is "C:\Users\maede\Desktop\New folder\top\extend.v".
+    Found 1-bit 3-to-1 multiplexer for signal <immext<11>> created at line 10.
+    Found 1-bit 3-to-1 multiplexer for signal <immext<0>> created at line 10.
+    Summary:
+	inferred  22 Multiplexer(s).
+Unit <extend> synthesized.
+
+Synthesizing Unit <alu>.
+    Related source file is "C:\Users\maede\Desktop\New folder\top\alu.v".
+    Found 32-bit subtractor for signal <a[31]_b[31]_sub_5_OUT> created at line 24.
+    Found 32-bit adder for signal <a[31]_b[31]_add_3_OUT> created at line 23.
+    Found 32x32-bit multiplier for signal <s_mul> created at line 18.
+    Found 32-bit shifter logical left for signal <a[31]_b[4]_shift_left_10_OUT> created at line 29
+    Found 32-bit shifter logical right for signal <a[31]_b[4]_shift_right_12_OUT> created at line 31
+    Found 32-bit 14-to-1 multiplexer for signal <z> created at line 22.
+    Found 32-bit comparator greater for signal <a[31]_b[31]_LessThan_8_o> created at line 27
+    Summary:
+	inferred   1 Multiplier(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+	inferred  16 Multiplexer(s).
+	inferred   2 Combinational logic shifter(s).
+Unit <alu> synthesized.
+
+Synthesizing Unit <div_32u_32u>.
+    Related source file is "".
+    Found 64-bit adder for signal <n3436> created at line 0.
+    Found 64-bit adder for signal <GND_11_o_b[31]_add_1_OUT> created at line 0.
+    Found 63-bit adder for signal <n3440> created at line 0.
+    Found 63-bit adder for signal <GND_11_o_b[31]_add_3_OUT> created at line 0.
+    Found 62-bit adder for signal <n3444> created at line 0.
+    Found 62-bit adder for signal <GND_11_o_b[31]_add_5_OUT> created at line 0.
+    Found 61-bit adder for signal <n3448> created at line 0.
+    Found 61-bit adder for signal <GND_11_o_b[31]_add_7_OUT> created at line 0.
+    Found 60-bit adder for signal <n3452> created at line 0.
+    Found 60-bit adder for signal <GND_11_o_b[31]_add_9_OUT> created at line 0.
+    Found 59-bit adder for signal <n3456> created at line 0.
+    Found 59-bit adder for signal <GND_11_o_b[31]_add_11_OUT> created at line 0.
+    Found 58-bit adder for signal <n3460> created at line 0.
+    Found 58-bit adder for signal <GND_11_o_b[31]_add_13_OUT> created at line 0.
+    Found 57-bit adder for signal <n3464> created at line 0.
+    Found 57-bit adder for signal <GND_11_o_b[31]_add_15_OUT> created at line 0.
+    Found 56-bit adder for signal <n3468> created at line 0.
+    Found 56-bit adder for signal <GND_11_o_b[31]_add_17_OUT> created at line 0.
+    Found 55-bit adder for signal <n3472> created at line 0.
+    Found 55-bit adder for signal <GND_11_o_b[31]_add_19_OUT> created at line 0.
+    Found 54-bit adder for signal <n3476> created at line 0.
+    Found 54-bit adder for signal <GND_11_o_b[31]_add_21_OUT> created at line 0.
+    Found 53-bit adder for signal <n3480> created at line 0.
+    Found 53-bit adder for signal <GND_11_o_b[31]_add_23_OUT> created at line 0.
+    Found 52-bit adder for signal <n3484> created at line 0.
+    Found 52-bit adder for signal <GND_11_o_b[31]_add_25_OUT> created at line 0.
+    Found 51-bit adder for signal <n3488> created at line 0.
+    Found 51-bit adder for signal <GND_11_o_b[31]_add_27_OUT> created at line 0.
+    Found 50-bit adder for signal <n3492> created at line 0.
+    Found 50-bit adder for signal <GND_11_o_b[31]_add_29_OUT> created at line 0.
+    Found 49-bit adder for signal <n3496> created at line 0.
+    Found 49-bit adder for signal <GND_11_o_b[31]_add_31_OUT> created at line 0.
+    Found 48-bit adder for signal <n3500> created at line 0.
+    Found 48-bit adder for signal <GND_11_o_b[31]_add_33_OUT> created at line 0.
+    Found 47-bit adder for signal <n3504> created at line 0.
+    Found 47-bit adder for signal <GND_11_o_b[31]_add_35_OUT> created at line 0.
+    Found 46-bit adder for signal <n3508> created at line 0.
+    Found 46-bit adder for signal <GND_11_o_b[31]_add_37_OUT> created at line 0.
+    Found 45-bit adder for signal <n3512> created at line 0.
+    Found 45-bit adder for signal <GND_11_o_b[31]_add_39_OUT> created at line 0.
+    Found 44-bit adder for signal <n3516> created at line 0.
+    Found 44-bit adder for signal <GND_11_o_b[31]_add_41_OUT> created at line 0.
+    Found 43-bit adder for signal <n3520> created at line 0.
+    Found 43-bit adder for signal <GND_11_o_b[31]_add_43_OUT> created at line 0.
+    Found 42-bit adder for signal <n3524> created at line 0.
+    Found 42-bit adder for signal <GND_11_o_b[31]_add_45_OUT> created at line 0.
+    Found 41-bit adder for signal <n3528> created at line 0.
+    Found 41-bit adder for signal <GND_11_o_b[31]_add_47_OUT> created at line 0.
+    Found 40-bit adder for signal <n3532> created at line 0.
+    Found 40-bit adder for signal <GND_11_o_b[31]_add_49_OUT> created at line 0.
+    Found 39-bit adder for signal <n3536> created at line 0.
+    Found 39-bit adder for signal <GND_11_o_b[31]_add_51_OUT> created at line 0.
+    Found 38-bit adder for signal <n3540> created at line 0.
+    Found 38-bit adder for signal <GND_11_o_b[31]_add_53_OUT> created at line 0.
+    Found 37-bit adder for signal <n3544> created at line 0.
+    Found 37-bit adder for signal <GND_11_o_b[31]_add_55_OUT> created at line 0.
+    Found 36-bit adder for signal <n3548> created at line 0.
+    Found 36-bit adder for signal <GND_11_o_b[31]_add_57_OUT> created at line 0.
+    Found 35-bit adder for signal <n3552> created at line 0.
+    Found 35-bit adder for signal <GND_11_o_b[31]_add_59_OUT> created at line 0.
+    Found 34-bit adder for signal <n3556> created at line 0.
+    Found 34-bit adder for signal <GND_11_o_b[31]_add_61_OUT> created at line 0.
+    Found 33-bit adder for signal <n3560> created at line 0.
+    Found 33-bit adder for signal <GND_11_o_b[31]_add_63_OUT> created at line 0.
+    Found 64-bit comparator lessequal for signal <BUS_0001> created at line 0
+    Found 63-bit comparator lessequal for signal <BUS_0002> created at line 0
+    Found 62-bit comparator lessequal for signal <BUS_0003> created at line 0
+    Found 61-bit comparator lessequal for signal <BUS_0004> created at line 0
+    Found 60-bit comparator lessequal for signal <BUS_0005> created at line 0
+    Found 59-bit comparator lessequal for signal <BUS_0006> created at line 0
+    Found 58-bit comparator lessequal for signal <BUS_0007> created at line 0
+    Found 57-bit comparator lessequal for signal <BUS_0008> created at line 0
+    Found 56-bit comparator lessequal for signal <BUS_0009> created at line 0
+    Found 55-bit comparator lessequal for signal <BUS_0010> created at line 0
+    Found 54-bit comparator lessequal for signal <BUS_0011> created at line 0
+    Found 53-bit comparator lessequal for signal <BUS_0012> created at line 0
+    Found 52-bit comparator lessequal for signal <BUS_0013> created at line 0
+    Found 51-bit comparator lessequal for signal <BUS_0014> created at line 0
+    Found 50-bit comparator lessequal for signal <BUS_0015> created at line 0
+    Found 49-bit comparator lessequal for signal <BUS_0016> created at line 0
+    Found 48-bit comparator lessequal for signal <BUS_0017> created at line 0
+    Found 47-bit comparator lessequal for signal <BUS_0018> created at line 0
+    Found 46-bit comparator lessequal for signal <BUS_0019> created at line 0
+    Found 45-bit comparator lessequal for signal <BUS_0020> created at line 0
+    Found 44-bit comparator lessequal for signal <BUS_0021> created at line 0
+    Found 43-bit comparator lessequal for signal <BUS_0022> created at line 0
+    Found 42-bit comparator lessequal for signal <BUS_0023> created at line 0
+    Found 41-bit comparator lessequal for signal <BUS_0024> created at line 0
+    Found 40-bit comparator lessequal for signal <BUS_0025> created at line 0
+    Found 39-bit comparator lessequal for signal <BUS_0026> created at line 0
+    Found 38-bit comparator lessequal for signal <BUS_0027> created at line 0
+    Found 37-bit comparator lessequal for signal <BUS_0028> created at line 0
+    Found 36-bit comparator lessequal for signal <BUS_0029> created at line 0
+    Found 35-bit comparator lessequal for signal <BUS_0030> created at line 0
+    Found 34-bit comparator lessequal for signal <BUS_0031> created at line 0
+    Found 33-bit comparator lessequal for signal <BUS_0032> created at line 0
+    Found 32-bit comparator lessequal for signal <BUS_0033> created at line 0
+    Summary:
+	inferred  64 Adder/Subtractor(s).
+	inferred  33 Comparator(s).
+	inferred 993 Multiplexer(s).
+Unit <div_32u_32u> synthesized.
+
+Synthesizing Unit <mod_32u_32u>.
+    Related source file is "".
+    Found 64-bit adder for signal <n3436> created at line 0.
+    Found 64-bit adder for signal <GND_12_o_b[31]_add_1_OUT> created at line 0.
+    Found 63-bit adder for signal <n3440> created at line 0.
+    Found 63-bit adder for signal <GND_12_o_b[31]_add_3_OUT> created at line 0.
+    Found 62-bit adder for signal <n3444> created at line 0.
+    Found 62-bit adder for signal <GND_12_o_b[31]_add_5_OUT> created at line 0.
+    Found 61-bit adder for signal <n3448> created at line 0.
+    Found 61-bit adder for signal <GND_12_o_b[31]_add_7_OUT> created at line 0.
+    Found 60-bit adder for signal <n3452> created at line 0.
+    Found 60-bit adder for signal <GND_12_o_b[31]_add_9_OUT> created at line 0.
+    Found 59-bit adder for signal <n3456> created at line 0.
+    Found 59-bit adder for signal <GND_12_o_b[31]_add_11_OUT> created at line 0.
+    Found 58-bit adder for signal <n3460> created at line 0.
+    Found 58-bit adder for signal <GND_12_o_b[31]_add_13_OUT> created at line 0.
+    Found 57-bit adder for signal <n3464> created at line 0.
+    Found 57-bit adder for signal <GND_12_o_b[31]_add_15_OUT> created at line 0.
+    Found 56-bit adder for signal <n3468> created at line 0.
+    Found 56-bit adder for signal <GND_12_o_b[31]_add_17_OUT> created at line 0.
+    Found 55-bit adder for signal <n3472> created at line 0.
+    Found 55-bit adder for signal <GND_12_o_b[31]_add_19_OUT> created at line 0.
+    Found 54-bit adder for signal <n3476> created at line 0.
+    Found 54-bit adder for signal <GND_12_o_b[31]_add_21_OUT> created at line 0.
+    Found 53-bit adder for signal <n3480> created at line 0.
+    Found 53-bit adder for signal <GND_12_o_b[31]_add_23_OUT> created at line 0.
+    Found 52-bit adder for signal <n3484> created at line 0.
+    Found 52-bit adder for signal <GND_12_o_b[31]_add_25_OUT> created at line 0.
+    Found 51-bit adder for signal <n3488> created at line 0.
+    Found 51-bit adder for signal <GND_12_o_b[31]_add_27_OUT> created at line 0.
+    Found 50-bit adder for signal <n3492> created at line 0.
+    Found 50-bit adder for signal <GND_12_o_b[31]_add_29_OUT> created at line 0.
+    Found 49-bit adder for signal <n3496> created at line 0.
+    Found 49-bit adder for signal <GND_12_o_b[31]_add_31_OUT> created at line 0.
+    Found 48-bit adder for signal <n3500> created at line 0.
+    Found 48-bit adder for signal <GND_12_o_b[31]_add_33_OUT> created at line 0.
+    Found 47-bit adder for signal <n3504> created at line 0.
+    Found 47-bit adder for signal <GND_12_o_b[31]_add_35_OUT> created at line 0.
+    Found 46-bit adder for signal <n3508> created at line 0.
+    Found 46-bit adder for signal <GND_12_o_b[31]_add_37_OUT> created at line 0.
+    Found 45-bit adder for signal <n3512> created at line 0.
+    Found 45-bit adder for signal <GND_12_o_b[31]_add_39_OUT> created at line 0.
+    Found 44-bit adder for signal <n3516> created at line 0.
+    Found 44-bit adder for signal <GND_12_o_b[31]_add_41_OUT> created at line 0.
+    Found 43-bit adder for signal <n3520> created at line 0.
+    Found 43-bit adder for signal <GND_12_o_b[31]_add_43_OUT> created at line 0.
+    Found 42-bit adder for signal <n3524> created at line 0.
+    Found 42-bit adder for signal <GND_12_o_b[31]_add_45_OUT> created at line 0.
+    Found 41-bit adder for signal <n3528> created at line 0.
+    Found 41-bit adder for signal <GND_12_o_b[31]_add_47_OUT> created at line 0.
+    Found 40-bit adder for signal <n3532> created at line 0.
+    Found 40-bit adder for signal <GND_12_o_b[31]_add_49_OUT> created at line 0.
+    Found 39-bit adder for signal <n3536> created at line 0.
+    Found 39-bit adder for signal <GND_12_o_b[31]_add_51_OUT> created at line 0.
+    Found 38-bit adder for signal <n3540> created at line 0.
+    Found 38-bit adder for signal <GND_12_o_b[31]_add_53_OUT> created at line 0.
+    Found 37-bit adder for signal <n3544> created at line 0.
+    Found 37-bit adder for signal <GND_12_o_b[31]_add_55_OUT> created at line 0.
+    Found 36-bit adder for signal <n3548> created at line 0.
+    Found 36-bit adder for signal <GND_12_o_b[31]_add_57_OUT> created at line 0.
+    Found 35-bit adder for signal <n3552> created at line 0.
+    Found 35-bit adder for signal <GND_12_o_b[31]_add_59_OUT> created at line 0.
+    Found 34-bit adder for signal <n3556> created at line 0.
+    Found 34-bit adder for signal <GND_12_o_b[31]_add_61_OUT> created at line 0.
+    Found 33-bit adder for signal <n3560> created at line 0.
+    Found 33-bit adder for signal <GND_12_o_b[31]_add_63_OUT> created at line 0.
+    Found 32-bit adder for signal <n3564> created at line 0.
+    Found 32-bit adder for signal <a[31]_b[31]_add_65_OUT[31:0]> created at line 0.
+    Found 64-bit comparator lessequal for signal <BUS_0001> created at line 0
+    Found 63-bit comparator lessequal for signal <BUS_0002> created at line 0
+    Found 62-bit comparator lessequal for signal <BUS_0003> created at line 0
+    Found 61-bit comparator lessequal for signal <BUS_0004> created at line 0
+    Found 60-bit comparator lessequal for signal <BUS_0005> created at line 0
+    Found 59-bit comparator lessequal for signal <BUS_0006> created at line 0
+    Found 58-bit comparator lessequal for signal <BUS_0007> created at line 0
+    Found 57-bit comparator lessequal for signal <BUS_0008> created at line 0
+    Found 56-bit comparator lessequal for signal <BUS_0009> created at line 0
+    Found 55-bit comparator lessequal for signal <BUS_0010> created at line 0
+    Found 54-bit comparator lessequal for signal <BUS_0011> created at line 0
+    Found 53-bit comparator lessequal for signal <BUS_0012> created at line 0
+    Found 52-bit comparator lessequal for signal <BUS_0013> created at line 0
+    Found 51-bit comparator lessequal for signal <BUS_0014> created at line 0
+    Found 50-bit comparator lessequal for signal <BUS_0015> created at line 0
+    Found 49-bit comparator lessequal for signal <BUS_0016> created at line 0
+    Found 48-bit comparator lessequal for signal <BUS_0017> created at line 0
+    Found 47-bit comparator lessequal for signal <BUS_0018> created at line 0
+    Found 46-bit comparator lessequal for signal <BUS_0019> created at line 0
+    Found 45-bit comparator lessequal for signal <BUS_0020> created at line 0
+    Found 44-bit comparator lessequal for signal <BUS_0021> created at line 0
+    Found 43-bit comparator lessequal for signal <BUS_0022> created at line 0
+    Found 42-bit comparator lessequal for signal <BUS_0023> created at line 0
+    Found 41-bit comparator lessequal for signal <BUS_0024> created at line 0
+    Found 40-bit comparator lessequal for signal <BUS_0025> created at line 0
+    Found 39-bit comparator lessequal for signal <BUS_0026> created at line 0
+    Found 38-bit comparator lessequal for signal <BUS_0027> created at line 0
+    Found 37-bit comparator lessequal for signal <BUS_0028> created at line 0
+    Found 36-bit comparator lessequal for signal <BUS_0029> created at line 0
+    Found 35-bit comparator lessequal for signal <BUS_0030> created at line 0
+    Found 34-bit comparator lessequal for signal <BUS_0031> created at line 0
+    Found 33-bit comparator lessequal for signal <BUS_0032> created at line 0
+    Found 32-bit comparator lessequal for signal <BUS_0033> created at line 0
+    Summary:
+	inferred  66 Adder/Subtractor(s).
+	inferred  33 Comparator(s).
+	inferred 994 Multiplexer(s).
+Unit <mod_32u_32u> synthesized.
+
+Synthesizing Unit <mux2>.
+    Related source file is "C:\Users\maede\Desktop\New folder\top\mux2.v".
+        WIDTH = 32
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <mux2> synthesized.
+
+Synthesizing Unit <controller>.
+    Related source file is "C:\Users\maede\Desktop\New folder\top\controller.v".
+    Summary:
+	no macro.
+Unit <controller> synthesized.
+
+Synthesizing Unit <mainfsm>.
+    Related source file is "C:\Users\maede\Desktop\New folder\top\mainfsm.v".
+    Found 5-bit register for signal <curState>.
+    Found finite state machine <FSM_0> for signal <curState>.
+    -----------------------------------------------------------------------
+    | States             | 11                                             |
+    | Transitions        | 17                                             |
+    | Inputs             | 8                                              |
+    | Outputs            | 15                                             |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | reset (positive)                               |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | 00000                                          |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Summary:
+	inferred   1 Finite State Machine(s).
+Unit <mainfsm> synthesized.
+
+Synthesizing Unit <aludec>.
+    Related source file is "C:\Users\maede\Desktop\New folder\top\aludec.v".
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <aludec> synthesized.
+
+Synthesizing Unit <instrdec>.
+    Related source file is "C:\Users\maede\Desktop\New folder\top\instrdec.v".
+    Summary:
+	no macro.
+Unit <instrdec> synthesized.
+
+Synthesizing Unit <mem>.
+    Related source file is "C:\Users\maede\Desktop\New folder\top\mem.v".
+WARNING:Xst:647 - Input <a<1:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <a<31:8>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 64x32-bit single-port RAM <Mram_RAM> for signal <RAM>.
+    Summary:
+	inferred   1 RAM(s).
+Unit <mem> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 3
+ 32x32-bit dual-port RAM                               : 2
+ 64x32-bit single-port RAM                             : 1
+# Multipliers                                          : 1
+ 32x32-bit multiplier                                  : 1
+# Adders/Subtractors                                   : 131
+ 32-bit adder                                          : 2
+ 32-bit addsub                                         : 1
+ 33-bit adder                                          : 4
+ 34-bit adder                                          : 4
+ 35-bit adder                                          : 4
+ 36-bit adder                                          : 4
+ 37-bit adder                                          : 4
+ 38-bit adder                                          : 4
+ 39-bit adder                                          : 4
+ 40-bit adder                                          : 4
+ 41-bit adder                                          : 4
+ 42-bit adder                                          : 4
+ 43-bit adder                                          : 4
+ 44-bit adder                                          : 4
+ 45-bit adder                                          : 4
+ 46-bit adder                                          : 4
+ 47-bit adder                                          : 4
+ 48-bit adder                                          : 4
+ 49-bit adder                                          : 4
+ 50-bit adder                                          : 4
+ 51-bit adder                                          : 4
+ 52-bit adder                                          : 4
+ 53-bit adder                                          : 4
+ 54-bit adder                                          : 4
+ 55-bit adder                                          : 4
+ 56-bit adder                                          : 4
+ 57-bit adder                                          : 4
+ 58-bit adder                                          : 4
+ 59-bit adder                                          : 4
+ 60-bit adder                                          : 4
+ 61-bit adder                                          : 4
+ 62-bit adder                                          : 4
+ 63-bit adder                                          : 4
+ 64-bit adder                                          : 4
+# Registers                                            : 7
+ 32-bit register                                       : 7
+# Comparators                                          : 67
+ 32-bit comparator greater                             : 1
+ 32-bit comparator lessequal                           : 2
+ 33-bit comparator lessequal                           : 2
+ 34-bit comparator lessequal                           : 2
+ 35-bit comparator lessequal                           : 2
+ 36-bit comparator lessequal                           : 2
+ 37-bit comparator lessequal                           : 2
+ 38-bit comparator lessequal                           : 2
+ 39-bit comparator lessequal                           : 2
+ 40-bit comparator lessequal                           : 2
+ 41-bit comparator lessequal                           : 2
+ 42-bit comparator lessequal                           : 2
+ 43-bit comparator lessequal                           : 2
+ 44-bit comparator lessequal                           : 2
+ 45-bit comparator lessequal                           : 2
+ 46-bit comparator lessequal                           : 2
+ 47-bit comparator lessequal                           : 2
+ 48-bit comparator lessequal                           : 2
+ 49-bit comparator lessequal                           : 2
+ 50-bit comparator lessequal                           : 2
+ 51-bit comparator lessequal                           : 2
+ 52-bit comparator lessequal                           : 2
+ 53-bit comparator lessequal                           : 2
+ 54-bit comparator lessequal                           : 2
+ 55-bit comparator lessequal                           : 2
+ 56-bit comparator lessequal                           : 2
+ 57-bit comparator lessequal                           : 2
+ 58-bit comparator lessequal                           : 2
+ 59-bit comparator lessequal                           : 2
+ 60-bit comparator lessequal                           : 2
+ 61-bit comparator lessequal                           : 2
+ 62-bit comparator lessequal                           : 2
+ 63-bit comparator lessequal                           : 2
+ 64-bit comparator lessequal                           : 2
+# Multiplexers                                         : 2035
+ 1-bit 2-to-1 multiplexer                              : 2004
+ 1-bit 3-to-1 multiplexer                              : 2
+ 32-bit 2-to-1 multiplexer                             : 28
+ 4-bit 2-to-1 multiplexer                              : 1
+# Logic shifters                                       : 2
+ 32-bit shifter logical left                           : 1
+ 32-bit shifter logical right                          : 1
+# FSMs                                                 : 1
+# Xors                                                 : 1
+ 32-bit xor2                                           : 1
+
+=========================================================================
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <mem>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_RAM> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 64-word x 32-bit                    |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <we>            | high     |
+    |     addrA          | connected to signal <a>             |          |
+    |     diA            | connected to signal <wd>            |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <mem> synthesized (advanced).
+
+Synthesizing (advanced) Unit <regFile>.
+INFO:Xst:3217 - HDL ADVISOR - Register <q> currently described with an asynchronous reset, could be combined with distributed RAM <Mram_rf> for implementation on block RAM resources if you made this reset synchronous instead.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 32-word x 32-bit                    |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <RegWrite>      | high     |
+    |     addrA          | connected to signal <a3>            |          |
+    |     diA            | connected to signal <result>        |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 32-word x 32-bit                    |          |
+    |     addrB          | connected to signal <a1>            |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3217 - HDL ADVISOR - Register <q> currently described with an asynchronous reset, could be combined with distributed RAM <Mram_rf1> for implementation on block RAM resources if you made this reset synchronous instead.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 32-word x 32-bit                    |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <RegWrite>      | high     |
+    |     addrA          | connected to signal <a3>            |          |
+    |     diA            | connected to signal <result>        |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 32-word x 32-bit                    |          |
+    |     addrB          | connected to signal <a2>            |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_rf> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_rf1> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+Unit <regFile> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 3
+ 32x32-bit dual-port distributed RAM                   : 2
+ 64x32-bit single-port distributed RAM                 : 1
+# Multipliers                                          : 1
+ 32x32-bit multiplier                                  : 1
+# Adders/Subtractors                                   : 66
+ 32-bit adder carry in                                 : 65
+ 32-bit addsub                                         : 1
+# Registers                                            : 224
+ Flip-Flops                                            : 224
+# Comparators                                          : 67
+ 32-bit comparator greater                             : 1
+ 32-bit comparator lessequal                           : 2
+ 33-bit comparator lessequal                           : 2
+ 34-bit comparator lessequal                           : 2
+ 35-bit comparator lessequal                           : 2
+ 36-bit comparator lessequal                           : 2
+ 37-bit comparator lessequal                           : 2
+ 38-bit comparator lessequal                           : 2
+ 39-bit comparator lessequal                           : 2
+ 40-bit comparator lessequal                           : 2
+ 41-bit comparator lessequal                           : 2
+ 42-bit comparator lessequal                           : 2
+ 43-bit comparator lessequal                           : 2
+ 44-bit comparator lessequal                           : 2
+ 45-bit comparator lessequal                           : 2
+ 46-bit comparator lessequal                           : 2
+ 47-bit comparator lessequal                           : 2
+ 48-bit comparator lessequal                           : 2
+ 49-bit comparator lessequal                           : 2
+ 50-bit comparator lessequal                           : 2
+ 51-bit comparator lessequal                           : 2
+ 52-bit comparator lessequal                           : 2
+ 53-bit comparator lessequal                           : 2
+ 54-bit comparator lessequal                           : 2
+ 55-bit comparator lessequal                           : 2
+ 56-bit comparator lessequal                           : 2
+ 57-bit comparator lessequal                           : 2
+ 58-bit comparator lessequal                           : 2
+ 59-bit comparator lessequal                           : 2
+ 60-bit comparator lessequal                           : 2
+ 61-bit comparator lessequal                           : 2
+ 62-bit comparator lessequal                           : 2
+ 63-bit comparator lessequal                           : 2
+ 64-bit comparator lessequal                           : 2
+# Multiplexers                                         : 2035
+ 1-bit 2-to-1 multiplexer                              : 2004
+ 1-bit 3-to-1 multiplexer                              : 2
+ 32-bit 2-to-1 multiplexer                             : 28
+ 4-bit 2-to-1 multiplexer                              : 1
+# Logic shifters                                       : 2
+ 32-bit shifter logical left                           : 1
+ 32-bit shifter logical right                          : 1
+# FSMs                                                 : 1
+# Xors                                                 : 1
+ 32-bit xor2                                           : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <rvmulti/c/fsm/FSM_0> on signal <curState[1:11]> with one-hot encoding.
+----------------------
+ State | Encoding
+----------------------
+ 00000 | 00000000001
+ 00001 | 00000000010
+ 00010 | 00000000100
+ 00110 | 00000001000
+ 01000 | 00000010000
+ 01001 | 00000100000
+ 01010 | 00001000000
+ 00011 | 00010000000
+ 00101 | 00100000000
+ 00100 | 01000000000
+ 00111 | 10000000000
+----------------------
+WARNING:Xst:2677 - Node <Mmult_s_mul> of sequential type is unconnected in block <alu>.
+WARNING:Xst:2677 - Node <Mmult_s_mul1> of sequential type is unconnected in block <alu>.
+WARNING:Xst:2677 - Node <Mmult_s_mul2> of sequential type is unconnected in block <alu>.
+WARNING:Xst:2677 - Node <Mmult_s_mul3> of sequential type is unconnected in block <alu>.
+
+Optimizing unit <flopenr> ...
+
+Optimizing unit <flopr> ...
+
+Optimizing unit <top> ...
+
+Optimizing unit <DataPath> ...
+
+Optimizing unit <alu> ...
+
+Optimizing unit <mainfsm> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block top, actual ratio is 12.
+FlipFlop rvmulti/c/fsm/curState_FSM_FFd10 has been replicated 1 time(s)
+FlipFlop rvmulti/c/fsm/curState_FSM_FFd11 has been replicated 1 time(s)
+FlipFlop rvmulti/c/fsm/curState_FSM_FFd6 has been replicated 1 time(s)
+FlipFlop rvmulti/nextPcReg/q_20 has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 239
+ Flip-Flops                                            : 239
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : top.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 846
+#      GND                         : 1
+#      INV                         : 1
+#      LUT2                        : 12
+#      LUT3                        : 100
+#      LUT4                        : 96
+#      LUT5                        : 102
+#      LUT6                        : 414
+#      MUXCY                       : 47
+#      MUXF7                       : 40
+#      VCC                         : 1
+#      XORCY                       : 32
+# FlipFlops/Latches                : 239
+#      FDC                         : 172
+#      FDCE                        : 65
+#      FDP                         : 2
+# RAMS                             : 46
+#      RAM32M                      : 10
+#      RAM32X1D                    : 4
+#      RAM64X1S                    : 32
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 66
+#      IBUF                        : 1
+#      OBUF                        : 65
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx9tqg144-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             239  out of  11440     2%  
+ Number of Slice LUTs:                  805  out of   5720    14%  
+    Number used as Logic:               725  out of   5720    12%  
+    Number used as Memory:               80  out of   1440     5%  
+       Number used as RAM:               80
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    877
+   Number with an unused Flip Flop:     638  out of    877    72%  
+   Number with an unused LUT:            72  out of    877     8%  
+   Number of fully used LUT-FF pairs:   167  out of    877    19%  
+   Number of unique control sets:         2
+
+IO Utilization: 
+ Number of IOs:                          67
+ Number of bonded IOBs:                  67  out of    102    65%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 285   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 11.482ns (Maximum Frequency: 87.091MHz)
+   Minimum input arrival time before clock: 4.500ns
+   Maximum output required time after clock: 13.044ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 11.482ns (frequency: 87.091MHz)
+  Total number of paths / destination ports: 2798941 / 728
+-------------------------------------------------------------------------
+Delay:               11.482ns (Levels of Logic = 11)
+  Source:            rvmulti/c/fsm/curState_FSM_FFd9 (FF)
+  Destination:       rvmulti/dp/nextPcReg/q_0 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: rvmulti/c/fsm/curState_FSM_FFd9 to rvmulti/dp/nextPcReg/q_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             12   0.447   1.137  rvmulti/c/fsm/curState_FSM_FFd9 (rvmulti/c/fsm/curState_FSM_FFd9)
+     LUT6:I3->O            2   0.205   0.845  rvmulti/dp/muxSrcB/Mmux_result11_SW2 (N39)
+     LUT6:I3->O            4   0.205   0.684  rvmulti/dp/muxSrcB/Mmux_result11_1 (rvmulti/dp/muxSrcB/Mmux_result11)
+     LUT3:I2->O           12   0.205   0.909  rvmulti/dp/muxSrcB/Mmux_result12_2 (rvmulti/dp/muxSrcB/Mmux_result12_1)
+     LUT6:I5->O            4   0.205   0.788  rvmulti/dp/mainAlu/Sh1041 (rvmulti/dp/mainAlu/Sh104)
+     LUT5:I3->O            2   0.203   0.617  rvmulti/dp/mainAlu/Sh1361 (rvmulti/dp/mainAlu/Sh136)
+     LUT6:I5->O            1   0.205   0.580  rvmulti/dp/mainAlu/Mmux_z13172 (rvmulti/dp/mainAlu/Mmux_z13172)
+     LUT6:I5->O            3   0.205   0.898  rvmulti/dp/mainAlu/Mmux_z13178 (rvmulti/dp/ALUResult<24>)
+     LUT6:I2->O            1   0.203   0.580  rvmulti/c/PCWrite3_SW0 (N119)
+     LUT6:I5->O            2   0.205   0.617  rvmulti/c/PCWrite5 (rvmulti/c/PCWrite4)
+     LUT6:I5->O           17   0.205   1.028  rvmulti/c/PCWrite9 (rvmulti/PCWrite)
+     LUT3:I2->O            1   0.205   0.000  rvmulti/dp/nextPcReg/q_0_rstpot (rvmulti/dp/nextPcReg/q_0_rstpot)
+     FDC:D                     0.102          rvmulti/dp/nextPcReg/q_0
+    ----------------------------------------
+    Total                     11.482ns (2.800ns logic, 8.682ns route)
+                                       (24.4% logic, 75.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 239 / 239
+-------------------------------------------------------------------------
+Offset:              4.500ns (Levels of Logic = 2)
+  Source:            reset (PAD)
+  Destination:       rvmulti/nextPcReg/q_31 (FF)
+  Destination Clock: clk rising
+
+  Data Path: reset to rvmulti/nextPcReg/q_31
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   1.222   0.579  reset_IBUF (reset_IBUF)
+     INV:I->O            239   0.206   2.063  rst_n1_INV_0 (rst_n)
+     FDCE:CLR                  0.430          rvmulti/nextPcReg/q_0
+    ----------------------------------------
+    Total                      4.500ns (1.858ns logic, 2.642ns route)
+                                       (41.3% logic, 58.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 58111 / 65
+-------------------------------------------------------------------------
+Offset:              13.044ns (Levels of Logic = 11)
+  Source:            rvmulti/c/fsm/curState_FSM_FFd9 (FF)
+  Destination:       DataAdr<19> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: rvmulti/c/fsm/curState_FSM_FFd9 to DataAdr<19>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             12   0.447   1.137  rvmulti/c/fsm/curState_FSM_FFd9 (rvmulti/c/fsm/curState_FSM_FFd9)
+     LUT6:I3->O            2   0.205   0.845  rvmulti/dp/muxSrcB/Mmux_result11_SW2 (N39)
+     LUT6:I3->O            4   0.205   0.684  rvmulti/dp/muxSrcB/Mmux_result11_1 (rvmulti/dp/muxSrcB/Mmux_result11)
+     LUT3:I2->O           12   0.205   0.909  rvmulti/dp/muxSrcB/Mmux_result12_2 (rvmulti/dp/muxSrcB/Mmux_result12_1)
+     LUT6:I5->O            4   0.205   0.912  rvmulti/dp/mainAlu/Sh271 (rvmulti/dp/mainAlu/Sh27)
+     LUT6:I3->O            5   0.205   0.715  rvmulti/dp/mainAlu/Sh511 (rvmulti/dp/mainAlu/Sh51)
+     LUT6:I5->O            1   0.205   0.684  rvmulti/dp/mainAlu/Mmux_z13116_SW3_F (N187)
+     LUT6:I4->O            1   0.203   0.000  rvmulti/dp/mainAlu/Mmux_z131110_G (N236)
+     MUXF7:I1->O           3   0.140   0.651  rvmulti/dp/mainAlu/Mmux_z131110 (rvmulti/dp/ALUResult<19>)
+     LUT5:I4->O            4   0.205   0.931  rvmulti/dp/resultChoser/Mmux_result111 (rvmulti/dp/Result<19>)
+     LUT4:I0->O            1   0.203   0.579  rvmulti/dp/address/Mmux_result111 (DataAdr_19_OBUF)
+     OBUF:I->O                 2.571          DataAdr_19_OBUF (DataAdr<19>)
+    ----------------------------------------
+    Total                     13.044ns (4.999ns logic, 8.045ns route)
+                                       (38.3% logic, 61.7% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |   11.482|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 15.00 secs
+Total CPU time to Xst completion: 14.63 secs
+ 
+--> 
+
+Total memory usage is 233272 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   10 (   0 filtered)
+Number of infos    :    6 (   0 filtered)
+

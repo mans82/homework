@@ -1,0 +1,50 @@
+function check_symetric(players) {
+    n = players.size()
+    current_element = players.first()
+    first_half = LinkedList()
+
+    // Add first half of players to the relevant linked list
+    for (i = 1 to (n / 2)) {
+        first_half.insert_first(current_element.data)
+        current_element = current_element.next
+    }
+
+    // This function is defined in Question 3 (DS4_3.pseudo)
+    reverse_list_recursive(first_half)
+
+    // Check if second half is equal to reverse of the original first half
+    for (i = (n / 2) + 1 to n) {
+        current_player = first_half.first().data
+        first_half.remove_first()
+        if (current_element.data != current_player) {
+            return false
+        }
+        current_element = current_element.next
+    }
+
+    return true
+}
+
+function check_sequential(players) {
+    n = players.size()
+    current_element = players.first()
+    first_half = LinkedList()
+
+    // Add first half of players to the relevant linked list
+    for (i = 1 to (n / 2)) {
+        first_half.insert_first(current_element.data)
+        current_element = current_element.next
+    }
+
+    // Check if second half is equal to the original first half
+    for (i = (n / 2) + 1 to n) {
+        current_player = first_half.first().data
+        first_half.remove_first()
+        if (current_element.data != current_player) {
+            return false
+        }
+        current_element = current_element.next
+    }
+
+    return true
+}

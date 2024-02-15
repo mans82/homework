@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj top -o "C:/Users/maede/Desktop/New folder/top/riscvmulti.tfi" -lib work "C:/Users/maede/Desktop/New folder/top//riscvmulti.v" -module riscvmulti -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

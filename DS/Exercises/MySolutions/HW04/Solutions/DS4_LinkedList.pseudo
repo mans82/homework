@@ -1,0 +1,107 @@
+struct Node {
+    int data
+    Node* next
+}
+
+class LinkedList {
+
+    // The first node of the list
+    first = null
+
+    // The last node of the list
+    last = null
+
+    size = 0
+
+    first() {
+        return this.first
+    }
+
+    last() {
+        return this.last
+    }
+
+    size() {
+        return this.size
+    }
+
+    insert_first(data) {
+        new_node = new Node();
+        new_node.data = data
+        new_node.next = this.first
+
+        if (this.last == null) {
+            this.last = new_node;
+        }
+        this.first = new_node;
+        size++;
+    }
+
+    remove_first() {
+        to_be_deleted_node = this.first
+        this.first = this.first.next
+
+        if (this.size == 1) {
+            this.last = null
+        }
+
+        // Free allocated memory for to-be-deleted node
+        free(to_be_deleted_node)
+
+        this.size--
+    }
+
+    insert_last(data) {
+        if (this.size == 0) {
+            // When list is empty, inserting to the end of the list is equivalent
+            // to insertng to the start of the list.
+            this.insert_first(data)
+        } else {
+            new_node = new Node()
+            new_node.data = data
+            new_node.next = null
+
+            this.last.next = new_node
+            this.last = new_node
+
+            this.size++
+        }
+    }
+
+    remove(node) {
+        prev_node = null
+        cur_node = this.first
+
+        while (cur_node != null) {
+            if (cur_node == node) {
+                // Delete this node
+                next_node = cur_node.next
+
+                // Update this.first, if neccessary
+                if (cur_node == this.first) {
+                    this.first = this.first.next
+                }
+
+                // Update this.last, if neccessary
+                if (cur_node == this.last) {
+                    this.last = prev_node
+                }
+                
+                if (prev_node != null) {
+                    prev_node.next = next_node
+                }
+
+                free(cur_node)
+                this.size--
+                break
+            }
+        }
+    }
+
+    clear() {
+        cur_element = this.first
+        while (cur_element != null) {
+            this.remove_first()
+        }
+    }
+}

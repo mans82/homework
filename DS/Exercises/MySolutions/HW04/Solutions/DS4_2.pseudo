@@ -1,0 +1,10 @@
+function reverse_list_recursive(list) {
+    if (list.size() <= 1) return
+
+    first_element = list.first().data
+    list.remove_first()
+    
+    reverse_list_recursive(list)
+
+    list.insert_last(first_element)
+}

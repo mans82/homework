@@ -1,0 +1,29 @@
+function remove_repeated_elements(linked_list) {
+    cur_element = linked_list.first()
+    while (cur_element != null) {
+        iter_element = cur_element
+        pointers = LinkedList()
+        sum = 0
+        while (iter_element != null) {
+            sum += iter_element.data
+            pointers.insert_last(iter_element)
+            iter_element = iter_element.next
+
+            if (sum == 0) {
+                // Remove elements with saved pointers
+                cur_pointer = pointers.first()
+                if (cur_pointer.data == cur_element) {
+                    cur_element = iter_element
+                }
+                while (cur_pointer != null) {
+                    linked_list.remove(cur_pointer.data)
+                    cur_pointer = cur_pointer.next
+                }
+
+                pointers.clear()
+            }
+
+        }
+        cur_element = cur_element.next
+    }
+}

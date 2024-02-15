@@ -1,0 +1,45 @@
+struct Node {
+    int data
+    Node* next
+    Node* prev
+}
+
+class DoublyLinkedList {
+
+    first = null
+    last = null
+    size = 0
+
+    last() {
+        return last
+    }
+
+    insert_last(data) {
+        new_node = new Node()
+        
+        new_node.data = data
+        new_node.next = null
+        new_node.prev = this.last
+
+        if (this.first == null) {
+            this.first = new_node
+        }
+
+        this.last = new_node
+    }
+
+    remove_first() {
+        node_to_be_removed = this.first
+        second_element = this.first.next
+
+        if (second_element != null) {
+            this.first = second_element
+            second_element.prev = null
+        } else {
+            this.first = null
+            this.last = null
+        }
+
+        free(node_to_be_removed)
+    }
+}

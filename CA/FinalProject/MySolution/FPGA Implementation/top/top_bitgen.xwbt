@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\maede\Desktop\New folder\top\top.ncd
+OUTFILE=C:\Users\maede\Desktop\New folder\top\top.bit
+FAMILY=Spartan6
+PART=xc6slx9-3tqg144
+WORKINGDIR=C:\Users\maede\Desktop\New folder\top
+LICENSE=WebPack
+USER_INFO=__0_0_0

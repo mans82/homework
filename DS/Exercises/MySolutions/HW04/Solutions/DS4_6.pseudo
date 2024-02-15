@@ -1,0 +1,23 @@
+function remove_repeated_elements(list) {
+    starting_element = list.first()
+
+    while (starting_element != null) {
+        prev_iter_element = starting_element
+        iter_element = starting_data.next
+
+        while (iter_element != null) {
+            if (iter_element.data == starting_element.data) {
+                // Remove current iterating element
+                prev_iter_element.next = iter_element.next
+                free(iter_element)
+                iter_element = prev_iter_element.next
+            } else {
+                iter_element = iter_element.next
+                prev_iter_element = prev_iter_element.next
+            }
+        }
+
+        prev_iter_element = prev_iter_element.next
+        iter_element = iter_element.next
+    }
+}

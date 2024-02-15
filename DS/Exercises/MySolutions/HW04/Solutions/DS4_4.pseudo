@@ -1,0 +1,44 @@
+function decrypt_keystrokes(file) {
+    result = DoublyLinkedList()
+    result.insert_last(0) // Insert a NULL value as the starting element
+    current_element = result.last()
+
+    while (!file.eof()) {
+        cur_char = file.readChar()
+        if (cur_char == '>') {
+            // Go forward
+            if (current_element.next != null) {
+                current_element = current_element.next
+            }
+        } else if (cur_char == '<') {
+            // Go backward
+            if (current_element.prev != null) {
+                current_element = current_element.prev
+            }
+        } else if (cur_char == '-') {
+            // Remove current char
+            if (current_element.data != 0) {
+                removed_element = current_element
+                current_element.prev.next = current_element.next
+                current_element = current_element.prev
+                free(removed_element)
+            }
+        } else {
+            // Insert new char
+            new_element = Node()
+            new_element.data = cur_char
+
+            new_element.prev = current_element
+            new_element.next = current_element.next
+            current_element.next.prev = new_element
+            current_element.next = new_element
+
+            current_element = new_element
+        }
+    }
+
+    // Remove the null value
+    result.remove_first()
+
+    return result
+}
