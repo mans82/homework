@@ -17,3 +17,4 @@ This repository is only for learning purposes. I will NOT be responsible for any
 * Data Structures (DS)
 * Computer Architecture (CA)
 * Formal Languages and Automata Theory (FLA)
+* Digital Logic Circuits Design (DLC)
