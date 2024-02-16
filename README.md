@@ -19,3 +19,4 @@ This repository is only for learning purposes. I will NOT be responsible for any
 * Formal Languages and Automata Theory (FLA)
 * Digital Logic Circuits Design (DLC)
 * Engineering Statistics (ES)
+* Operating Systems (OS)
