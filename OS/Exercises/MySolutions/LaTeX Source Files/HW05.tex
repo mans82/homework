@@ -1,0 +1,540 @@
+\documentclass{article}
+
+%\usepackage{graphicx}
+%\usepackage{float}
+\usepackage{listings}
+\usepackage{lstautogobble}
+\usepackage[letterpaper, margin=1in]{geometry}
+%\usepackage{enumitem}
+\usepackage{amsmath}
+%\usepackage[normalem]{ulem}
+\usepackage{pgfgantt}
+\usepackage{xepersian}
+
+%\graphicspath{{./img}}
+\settextfont{XB Niloofar}
+
+\title{سیستم‌های عامل - دکتر ابراهیمی‌مقدم}
+\author{امیرحسین منصوری - ۹۹۲۴۳۰۶۹}
+\date{تمرین سری پنجم}
+
+\begin{document}
+	\maketitle
+
+	\section*{سوال ۱}
+	\subsection*{الف)}
+	\paragraph*{نادرست؛}
+	در یک سیستم با
+	$n$
+	پروسه، بدترین زمان پاسخگویی در
+	\LRE{RR}
+	برای هر پروسه، برابر
+	$(n-1)q$
+	است. در یک سناریوی فرضی، اگر
+	$n=3$
+	 پروسه داشته باشیم که هر کدام بخواهند ۳ ثانیه اجرا شوند، در
+	\LRE{SJF}
+	زمان پاسخگویی برابر
+	$\frac{0 + 3s + 6s}{3} = 3s$
+	خواهد بود. در حالی که اگر از
+	\LRE{RR}
+	با
+	$q=10ms$
+	استفاده کنیم، بیشترین میانگین زمان ممکن برابر
+	$(n-1)q = 20ms$
+	خواهد بود که بسیار کمتر از معادل آن در
+	\LRE{SJF}
+	است.
+
+	\subsection*{ب)}
+	\paragraph*{درست...؛}
+	از نظر متوسط زمان پاسخگویی پروسه‌ها، این جمله درست است. اما معمولا
+	\LRE{FIFO}
+	سربار کمتری نسبت به
+	\LRE{SJF}
+	دارد و از این لحاظ کمی سریع‌تر است.
+
+	\subsection*{ج)}
+	\paragraph*{نادرست؛}
+	در این حالت، زمان‌بند برخی پروسه‌ها را از حافظه اصلی خارج و در
+	\LRE{Virtual memory}
+	ذخیره می‌کند (اصطلاحاً
+	\LRE{Swap out}
+	می‌کند) تا جا برای پروسه‌های دیگر در حافظه اصلی باز شود.
+
+	\section*{سوال ۲}
+	\subsection*{\LRE{SJF}}
+
+	\begin{latin}
+		\resizebox{\textwidth}{!}{
+		\begin{ganttchart}[
+			expand chart=\textwidth,
+			vgrid,
+			hgrid,
+			inline
+			]{0}{12}
+			\gantttitlelist{0,...,12}{1} \\
+			\ganttbar{P2}{0}{3} \\
+			\ganttbar{P3}{4}{4} \\
+			\ganttbar{P1}{5}{12}
+			\ganttvrule{P1 and P2 Enter}{-1}
+			\ganttvrule{P3 Enters}{1}
+		\end{ganttchart}
+		}
+	\end{latin}
+
+	\paragraph*{}
+	در نمودار بالا، ابتدا
+	\LRE{P1}
+	و
+	\LRE{P2}
+	با هم وارد می‌شوند. چون
+	\LRE{Burst time}
+	پروسهٔ
+	\LRE{P2}
+	کمتر است، این پروسه برای اجرا انتخاب می‌شود. پس از اتمام اجرا،
+	\LRE{P3}
+	و
+	\LRE{P1}
+	در سیستم هستند و چون
+	\LRE{P3}
+	زمان
+	\LRE{Burst time}
+	کمتری دارد، برای اجرا انتخاب می‌شود. در نهایت
+	\LRE{P1}
+	نیز اجرا می‌شود.
+
+	\paragraph*{}
+	با توجه به شکل:
+
+	\begin{gather*}
+		\textrm{\LRE{Response Time for P1}} = 5 \\
+		\textrm{\LRE{Response Time for P2}} = 0 \\
+		\textrm{\LRE{Response Time for P3}} = 4 \\
+		\Rightarrow
+		\textrm{\LRE{Average Response Time}} =
+		\frac{5 + 0 + 4}{3} = 3
+	\end{gather*}
+
+	\subsection*{\LRE{FIFO} (یا \LRE{FCFS})}
+
+	\begin{latin}
+		\resizebox{\textwidth}{!}{
+			\begin{ganttchart}[
+				expand chart=\textwidth,
+				vgrid,
+				hgrid,
+				inline
+				]{0}{12}
+				\gantttitlelist{0,...,12}{1} \\
+				\ganttbar{P1}{0}{7} \\
+				\ganttbar{P2}{8}{11} \\
+				\ganttbar{P3}{12}{12}
+				\ganttvrule{P1 and P2 Enter}{-1}
+				\ganttvrule{P3 Enters}{1}
+			\end{ganttchart}
+		}
+	\end{latin}
+
+	\paragraph*{}
+	بین پروسه‌های
+	\LRE{P1}
+	و
+	\LRE{P2}
+	که همزمان وارد می‌شوند، ابتدا
+	\LRE{P1}
+	که اولویت بیشتری دارد اجرا می‌شود و سپس
+	\LRE{P2}
+	اجرا می‌شود. در نهایت
+	\LRE{P3}
+	که از همه دیرتر وارد شده، اجرا می‌شود. داریم:
+
+	\begin{gather*}
+		\textrm{\LRE{Response Time for P1}} = 0 \\
+		\textrm{\LRE{Response Time for P2}} = 8 \\
+		\textrm{\LRE{Response Time for P3}} = 12 \\
+		\Rightarrow
+		\textrm{\LRE{Average Response Time}} =
+		\frac{0 + 8 + 12}{3} = \frac{20}{3} \approx 6.67
+	\end{gather*}
+
+	\subsection*{\LRE{SRTF}}
+
+	\begin{latin}
+		\resizebox{\textwidth}{!}{
+			\begin{ganttchart}[
+				expand chart=\textwidth,
+				vgrid,
+				hgrid,
+				inline
+				]{0}{12}
+				\gantttitlelist{0,...,12}{1} \\
+				\ganttbar{P2}{0}{1} \\
+				\ganttbar{P3}{2}{2} \\
+				\ganttbar{P2}{3}{4} \\
+				\ganttbar{P1}{5}{12}
+				\ganttvrule{P1 and P2 Enter}{-1}
+				\ganttvrule{P3 Enters}{1}
+			\end{ganttchart}
+		}
+	\end{latin}
+
+	\paragraph*{}
+	از بین پروسه‌های
+	\LRE{P1}
+	و
+	\LRE{P2}،
+	پروسهٔ
+	\LRE{P2}
+	که زمان باقی‌مانده‌ٔ کوتاه‌تری دارد (برابر ۴)، وارد می‌شود. در زمان
+	$t + 2$،
+	پروسهٔ
+	\LRE{P3}
+	وارد می‌شود و چون کوتاه‌ترین زمان باقی‌مانده را دارد (برابر ۱)، جایگزین پروسهٔ قبلی می‌شود و اجرا می‌شود. بعد از پایان این پروسه، پروسهٔ
+	\LRE{P2}
+	که ۲ واحد زمانی نیاز دارد تا به اتمام برسد (در مقابل
+	\LRE{P1}
+	که ۸ واحد زمانی نیاز دارد)، به اجرا شدن ادامه می‌دهد. بعد از اتمام این پروسه،
+	\LRE{P1}
+	در نهایت اجرا می‌شود. داریم:
+
+	\begin{gather*}
+		\textrm{\LRE{Response Time for P1}} = 5 \\
+		\textrm{\LRE{Response Time for P2}} = 0 \\
+		\textrm{\LRE{Response Time for P3}} = 2 \\
+		\Rightarrow
+		\textrm{\LRE{Average Response Time}} =
+		\frac{5 + 0 + 2}{3} = \frac{7}{3} \approx 2.33
+	\end{gather*}
+
+	\section*{سوال ۳}
+
+	\subsection*{الف)}
+	\paragraph*{}
+	همهٔ پروسه‌های وارد شده در سیستم، فارغ از وضعیتشان، اولویت خود را به مرور از دست می‌دهند. اما چون
+	$b < a$،
+	پروسه‌های در وضعیت
+	\LRE{Running}
+	اولویت خود را سریع‌تر از پروسه‌های
+	\LRE{Ready}
+	از دست می‌دهند. این باعث می‌شود که یک پروسهٔ
+	\LRE{Running}،
+	بعد از مدتی جای خود را با یک پروسهٔ
+	\LRE{Ready}
+	عوض کند. همچنین چون اولویت یک پروسهٔ جدید برابر صفر است، از همه پروسه‌های موجود اولویت بیشتری خواهد داشت و بنابراین به هنگام ورود، بلافاصله اجرا می‌شود. در دو حالت می‌توان الگوریتم حاصل را بررسی کرد:
+
+	\begin{itemize}
+		\item{\textbf{همه پروسه‌ها با هم وارد شوند:}}
+		در این حالت، الگوریتم دقیقا مثل
+		\LRE{RR}
+		عمل خواهد کرد که
+		\LRE{Time quantum}
+		کوچکی دارد.
+
+		\item{\textbf{پروسه‌ها در زمان‌های مختلف وارد شوند:}}
+		در این حالت، اولویت با پروسه‌ای است که کمترین
+		\LRE{CPU Time}
+		تا به حال به آن اختصاص داده شده؛ مثلا پروسهٔ جدیدی که تا به حال اجرا نشده، بیشترین اولویت را پیدا می‌کند و بلافاصله شروع به اجرا می‌کند. اگر برای مدت طولانی پروسهٔ جدیدی وارد نشود، بعد از مدتی اولویت پروسه‌ها نزدیک به هم می‌شود و الگوریتم دوباره مثل
+		\LRE{RR}
+		عمل می‌کند.
+	\end{itemize}
+
+	\subsection*{ب)}
+	\paragraph*{}
+	چون همواره اولویت پروسه‌های موجود در حال کم شدن است، پروسه‌ای که تازه وارد می‌شود، همیشه بیشترین اولویت را خواهد داشت و بلافاصله جایگزین پروسهٔ فعلی در حال اجرا می‌شود. همچنین پروسه‌های در وضعیت
+	\LRE{Running}
+	کندتر از پروسه‌های در وضعیت
+	\LRE{Ready}
+	اولویت خود را از دست می‌دهند. بنابراین یک پروسهٔ در وضعیت
+	\LRE{Running}،
+	همیشه از همهٔ پروسه‌های
+	\LRE{Ready}
+	موجود اولویت بیشتری خواهد داشت و بنابراین تا اتمام پروسه، در وضعیت
+	\LRE{Running}
+	باقی خواهد ماند. همچنین چون پروسه‌ها در ابتدا اولویت صفر دارند، هرچه کمتر در صف
+	\LRE{Ready}
+	بوده باشند، یا به عبارتی
+	\textit{دیرتر}
+	وارد شده باشند، اولویت بیشتری دارند.
+
+	\paragraph*{}
+	در نهایت می‌توان این یک الگوریتم
+	\LRE{Pre-emptive LIFO}
+	است؛ که یعنی بیشترین اولویت را به پروسه‌های جدید می‌دهد
+	(\LRE{Last In, First Out})
+	و در صورت وارد شدن یک پروسه جدید، بلافاصله پردازنده را به آن اختصاص می‌دهد
+	(\LRE{Pre-emptive}).
+
+	\subsection*{ج)}
+	\paragraph*{}
+	چون
+	$b > 0$،
+	اولویت پروسه‌های در وضعیت
+	\LRE{Running}
+	همواره در حال افزایش، و چون
+	$a < 0$،
+	اولویت پروسه‌های در وضعیت
+	\LRE{Ready}
+	همواره در حال کاهش است. بنابراین یک پروسهٔ در وضعیت
+	\LRE{Running}،
+	از هر پروسهٔ دیگر (چه جدید باشد، چه
+	\LRE{Ready})
+	اولویت بیشتری دارد و بنابراین هیچ‌گاه اجرای آن متوقف نمی‌شود (دچار
+	\LRE{Pre-emption}
+	نمی‌شویم).
+	همچنین مانند قسمت قبل، بین پروسه‌های
+	\LRE{Ready}،
+	آن که کمتر در صف بوده باشد و به عبارتی جدیدتر آمده باشد، اولویت بیشتری دارد.
+
+	\paragraph*{}
+	در نهایت می‌توان گفت این یک الگوریتم
+	\LRE{Non-preemptive LIFO}
+	است؛ چون مانند قسمت قبل، بیشترین اولویت را به پروسه‌های جدید‌تر می‌دهد؛ اما در عمل هیچ‌گاه
+	\LRE{Pre-emption}
+	در آن رخ نمی‌دهد و یک پروسهٔ در حال اجرا، تا اتمام کارش پردازنده را در اختیار خواهد داشت.
+
+	\section*{سوال ۴}
+	\paragraph*{}
+	نمودار
+	\LRE{Gantt chart}
+	پروسه‌ها به صورت زیر است. به علت طولانی بودن محاسبات عددی مربوط به آن، از آوردن این محاسبات صرف‌نظر کرده‌ایم!
+
+	\paragraph*{}
+
+	\begin{latin}
+		\begin{ganttchart}[
+			expand chart=\textwidth,
+			%vgrid,
+			hgrid,
+			inline
+			]{0}{19}
+			%\gantttitlelist{0,2,...,21}{2}\\
+			\ganttbar{P1}{0}{0}
+			\ganttbar{P1/P2}{1}{3}
+			\ganttbar{P1/P2/P3}{4}{6}
+			\ganttbar{P2/P3}{7}{8}
+			\ganttbar{P2/P3/P4}{9}{11}
+			\ganttbar{P2/P3/P4/P5}{12}{15}
+			\ganttbar{P2/P3/P4/P5/P6}{16}{19}
+			\ganttvrule{0}{-1}
+			\ganttvrule{1}{0}
+			\ganttvrule{4}{3}
+			\ganttvrule{5.5}{6}
+			\ganttvrule{7}{8}
+			\ganttvrule{9}{11}
+			\ganttvrule{12}{15}
+			\ganttvrule{13.25}{19}
+		\end{ganttchart}
+
+		\paragraph*{}
+
+		\begin{ganttchart}[
+			expand chart=0.99\textwidth,
+			%vgrid,
+			hgrid,
+			inline
+			]{0}{16}
+			%\gantttitlelist{0,2,...,21}{2}\\
+			\ganttbar{P2/P3/P4/P6}{0}{2}
+			\ganttbar{P2/P4/P6}{3}{6}
+			\ganttbar{P4/P6}{7}{10}
+			\ganttbar{P4}{11}{16}
+			\ganttvrule{13.25}{-1}
+			\ganttvrule{13.58}{2}
+			\ganttvrule{15.08}{6}
+			\ganttvrule{17.42}{10}
+			\ganttvrule{21}{16}
+		\end{ganttchart}
+
+	\end{latin}
+
+	\paragraph*{}
+	برای به دست آوردن نمودار بالا، کافی است محاسبه کنیم در زمان وارد شدن هر پروسه، چند پروسه همزمان داریم؛ و این پروسه‌های همزمان تا چه زمانی با هم اجرا می‌شوند، یا کدام‌یک از آن‌ها در چه زمانی به اتمام می‌رسند. به طور کلی اگر $n$ پروسه همزمان در سیستم داشته باشیم، و کمترین زمان باقی‌مانده بین این
+	$n$
+	پروسه برابر
+	$t$
+	باشد، این پروسه‌ها تا
+	$n \times t$
+	زمان بعد با هم اجرا می‌شوند؛ و درست بعد از این زمان پروسه با کمترین زمان باقی‌مانده به اتمام می‌رسد و
+	$n-1$
+	پروسه باقی می‌مانند. همچنین اگر
+	$n$
+	پروسه با هم در سیستم باشند، و زمان
+	$q$
+	بگذرد، از زمان باقی‌مانده هر کدام از پروسه‌ها
+	$\frac{q}{n}$
+	کم می‌شود. با استفاده از این روابط، اعداد نمودار بالا قابل محاسبه است.
+
+	\paragraph*{}
+	زمان انتظار هر پروسه نیز برابر
+	\begin{equation*}
+		(\textrm{\LRE{Finish time}} - \textrm{\LRE{Arrival time}}) - \textrm{\LRE{Burst time}}
+	\end{equation*}
+	خواهد بود. بنابراین:
+
+	\begin{align*}
+		W_{P_1} &= (5.5 - 0) - 3 = 2.5 \\
+		W_{P_2} &= (15.08 - 1) - 5 = 9.08 \\
+		W_{P_3} &= (13.58 - 4) - 3 = 6.58 \\
+		W_{P_4} &= (21 - 7) - 7 = 7 \\
+		W_{P_5} &= (13.25 - 9) - 1 = 3.25 \\
+		W_{P_6} &= (17.42 - 12) - 2 = 3.42
+	\end{align*}
+
+	و میانگین این زمان‌ها برابر با
+	۵٫۳۰۵
+	دقیقه خواهد بود.
+
+	\section*{سوال ۵}
+	\subsection*{الف)}
+	\paragraph*{}
+	برای این که مدیریت این پروسه‌ها ممکن باشد، باید داشته باشیم
+	$\sum_{i=1}^{m} \frac{c_i}{p_i} \le 1$.
+	بنابراین
+
+	\begin{align*}
+		\frac{x}{100} + \frac{40}{200} + \frac{100}{500} &\le 1 \\
+		\Rightarrow
+		x &\le 60
+	\end{align*}
+
+	\subsection*{ب)}
+	برای این که مدیریت این پروسه‌ها با الگوریتم
+	\LRE{RMS}
+	ممکن باشد، باید داشته باشیم
+	$\sum_{i=1}^{m} \frac{c_i}{p_i} \le m(2^{\frac{1}{m}} - 1)$.
+	بنابراین
+
+	\begin{align*}
+		\frac{x}{100} + \frac{40}{200} + \frac{100}{500} &\le 3(2^{\frac{1}{3}} - 1) \approx 0.78 \\
+		\Rightarrow
+		x \le 37.97
+	\end{align*}
+
+	\subsection*{ج)}
+
+	در هر دو مثال، فرض می‌کنیم
+	$x = 30$.
+
+	\subsubsection*{\LRE{RMS}}
+
+	\begin{latin}
+		\begin{ganttchart}[
+			expand chart=\textwidth,
+			vgrid,
+			%hgrid,
+			inline
+			]{0}{99}
+			\gantttitlelist{0,100,...,999}{10} \\
+
+			\ganttbar{P1}{0}{2}
+			\ganttbar{P2}{3}{6}
+			\ganttbar{P3}{7}{9}
+
+			\ganttbar{P1}{10}{12}
+			\ganttbar{P3}{13}{19}
+			%\ganttbar{P3}{7}{9}
+
+			\ganttbar{P1}{20}{22}
+			\ganttbar{P2}{23}{26}
+
+			\ganttbar{P1}{30}{32}
+
+			\ganttbar{P1}{40}{42}
+			\ganttbar{P2}{43}{46}
+
+			\ganttbar{P1}{50}{52}
+			\ganttbar{P3}{53}{59}
+
+			\ganttbar{P1}{60}{62}
+			\ganttbar{P2}{63}{66}
+			\ganttbar{P3}{67}{69}
+
+			\ganttbar{P1}{70}{72}
+
+			\ganttbar{P1}{80}{82}
+			\ganttbar{P2}{83}{86}
+
+			\ganttbar{P1}{90}{92}
+
+			\ganttvrule{$T_1$}{9}
+			\ganttvrule{$T_1$, $T_2$}{19}
+			\ganttvrule{$T_1$}{29}
+			\ganttvrule{$T_1$, $T_2$}{39}
+			\ganttvrule{$T_1$, $T_3$}{49}
+			\ganttvrule{$T_1$, $T_2$}{59}
+			\ganttvrule{$T_1$}{69}
+			\ganttvrule{$T_1$, $T_2$}{79}
+			\ganttvrule{$T_1$}{89}
+			\ganttvrule{$T_1$, $T_2$}{99}
+
+			%\ganttvrule{T1}{9}
+
+		\end{ganttchart}
+	\end{latin}
+
+	\subsubsection*{\LRE{EDF}}
+
+	\begin{latin}
+		\begin{ganttchart}[
+			expand chart=\textwidth,
+			vgrid,
+			%hgrid,
+			inline
+			]{0}{99}
+			\gantttitlelist{0,100,...,999}{10} \\
+
+			\ganttbar{P1}{0}{2}
+			\ganttbar{P2}{3}{6}
+			\ganttbar{P3}{7}{9}
+
+			\ganttbar{P1}{10}{12}
+			\ganttbar{P3}{13}{19}
+			%\ganttbar{P3}{7}{9}
+
+			\ganttbar{P1}{20}{22}
+			\ganttbar{P2}{23}{26}
+
+			\ganttbar{P1}{30}{32}
+
+			\ganttbar{P1}{40}{42}
+			\ganttbar{P2}{43}{46}
+
+			\ganttbar{P1}{50}{52}
+			\ganttbar{P3}{53}{59}
+
+			\ganttbar{P1}{60}{62}
+			\ganttbar{P2}{63}{66}
+			\ganttbar{P3}{67}{69}
+
+			\ganttbar{P1}{70}{72}
+
+			\ganttbar{P1}{80}{82}
+			\ganttbar{P2}{83}{86}
+
+			\ganttbar{P1}{90}{92}
+
+			\ganttvrule{$T_1$}{9}
+			\ganttvrule{$T_1$, $T_2$}{19}
+			\ganttvrule{$T_1$}{29}
+			\ganttvrule{$T_1$, $T_2$}{39}
+			\ganttvrule{$T_1$, $T_3$}{49}
+			\ganttvrule{$T_1$, $T_2$}{59}
+			\ganttvrule{$T_1$}{69}
+			\ganttvrule{$T_1$, $T_2$}{79}
+			\ganttvrule{$T_1$}{89}
+			\ganttvrule{$T_1$, $T_2$}{99}
+
+			%\ganttvrule{T1}{9}
+
+		\end{ganttchart}
+	\end{latin}
+
+	\paragraph*{}
+	نمودار مربوط به الگوریتم
+	\LRE{EDF}،
+	دقیقا مانند
+	\LRE{RMS}
+	به دست می‌آید.
+
+\end{document}

@@ -1,0 +1,419 @@
+\documentclass{article}
+
+%\usepackage{graphicx}
+%\usepackage{float}
+\usepackage{listings}
+\usepackage{lstautogobble}
+\usepackage[letterpaper, margin=1in]{geometry}
+%\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage[normalem]{ulem}
+\usepackage{xepersian}
+
+%\graphicspath{{./img}}
+\settextfont{XB Niloofar}
+
+\title{سیستم‌های عامل - دکتر ابراهیمی‌مقدم}
+\author{امیرحسین منصوری - ۹۹۲۴۳۰۶۹}
+\date{تمرین سری چهارم}
+
+\begin{document}
+	\maketitle
+
+	\section*{سوال ۱}
+	\paragraph*{}
+	بله؛ چون ممکن است دو فیلسوفی که در چپ و راست یک فیلسوف هستند به طور متناوب چنگال بردارند، و اجازه ندهند فیلسوف وسطی دو چنگال بردارد. همچنین سازوکاری برای اولویت دادن به فیلسوف‌ها نداریم تا به طور مثال بتوان اولویت را به فیلسوفی که مدت زیادی منتظر چنگال است بدهیم.
+
+	\section*{سوال ۲}
+	\paragraph*{}
+
+	فرض شده که در
+	\sout{نانوایی}
+	رستوران لزلی،
+	حداکثر
+	\verb|N|
+	مشتری داریم.
+
+	\lstset{
+		basicstyle=\ttfamily,
+		numbers=left,
+		xleftmargin=15pt,
+		numberstyle=\ttfamily,
+		autogobble=true,
+		tabsize=4
+	}
+
+	\begin{latin}
+		\begin{lstlisting}
+			bool choosing[N]; // all initialized to false
+			int number[N]; // all initialized to 0
+
+			finishedGettingServed(i) {
+				return number[i] == 0;
+			}
+
+			hasHigherPriority(i, j) {
+				return number[i] < number[j] || (number[i] == number[j] && i < j);
+			}
+
+			serveCustomer(i) {
+				// Entry Section
+
+				// Indicate that a number is being chosen for customer i
+				choosing[i] = true;
+
+				// Choose a unique number for i, save in number[i]
+				number[i] = max_element(number) + 1;
+
+				// Indicate that number is chosen
+				choosing[i] = false;
+
+				// Wait for all customers with higher priority to finish
+				for (int j = 0; j < N; j++) {
+
+					// Wait for customer j to finish getting number
+					while (choosing[j]);
+
+					// Wait for customer j to finish getting served, but
+					// ONLY IF it has higher priority
+					while (!finishedGettingServed(j) && hasHigherPriority(j, i));
+				}
+
+				// END OF Entry Section
+
+				// Critical Section
+				serveCustomer(i)
+
+				// Remainder Section
+
+				// Set customer i as finished
+				number[i] = 0;
+
+
+			}
+		\end{lstlisting}
+	\end{latin}
+
+	\paragraph*{}
+	تابع
+	\LRE{\verb|serveCustomer(i)|}
+	در ترد
+	$i$ام
+	اجرا می‌شود. در ابتدا در تابع
+	\LRE{\verb|choosing|}،
+	مشخص می‌کنیم که در حال انتخاب شماره برای مشتری
+	$i$ام
+	هستیم (چون این موضوع در
+	\LRE{Entry section}
+	تردهای دیگر بررسی می‌شود). سپس یک شماره منحصر به فرد برای مشتری
+	$i$ام
+	انتخاب می‌شود و در
+	\LRE{\verb|number[i]|}
+	ذخیره می‌شود. این شماره برابر با بالاترین شماره‌ای که از قبل به مشتریان داده شده به علاوهٔ یک خواهد بود. حال که عمل صدور شماره تمام شده،
+	\LRE{\verb|choosing[i]|}
+	برابر
+	\LRE{\verb|false|}
+	می‌شود.
+
+	\paragraph*{}
+	قبل از ورود به
+	\LRE{Critical section}،
+	باید صبر کنیم تا کار تمام ترد‌های دیگر که اولویت بیشتر دارند و قصد انجام شدن دارند (برایشان شماره صادر شده) به اتمام برسد. حلقه
+	\LRE{\verb|for|}
+	خط ۲۵، این موضوع را بررسی می‌کند. نشانه اتمام کار یک ترد و خارج شدنش از
+	\LRE{Critical section}،
+	صفر شدن شماره‌اش در آرایه
+	\LRE{\verb|number|}
+	است. همچنین لازم به ذکر است که اگر ترد جدیدی وارد شود و آرایه
+	\LRE{\verb|number|}
+	را تغییر دهد، نیازی به چک کردن مقدار جدید نوشته شده در این آرایه نداریم؛ چون این ترد جدید قطعا اولویت کمتری نسبت به ترد
+	$i$ام
+	خواهد داشت و نباید برایش صبر کنیم. پس چه این حلقه، ترد جدید را بررسی کند و چه بررسی نکند، برای ترد جدید صبر نمی‌کنیم و الگوریتم همچنان صحیح کار می‌کند.
+
+	\paragraph*{}
+	در نهایت، وارد
+	\LRE{Critical section}
+	می‌شویم و پس از خارج شدن از آن، به نشانه اتمام کار،
+	\LRE{\verb|number[i]|}
+	را صفر می‌کنیم.
+
+	\paragraph*{}
+	حال شرط‌های سه‌گانه را بررسی می‌کنیم:
+	\begin{itemize}
+		\item{\textbf{
+			شرط
+			\LRE{Mutual exclusion}:
+		}}
+		چون اولویت هیچ مشتری‌ای با مشتری دیگر یکی نیست (با فرض یکتا بودن شماره هر مشتری)، و هر مشتری صبر می‌کند تا مشتری‌های با اولویت بیشتر به پایان برسند، قطعا هیچ دو مشتری‌ای با هم وارد
+		\LRE{Critical section}
+		نمی‌شوند. پس این شرط برقرار است.
+
+		\item{\textbf{
+			شرط
+			\LRE{Progress}:
+		}}
+		اگر کسی در
+		\LRE{Critical section}
+		نباشد، پس هیچ مشتری‌ای در آرایه
+		\LRE{\verb|number|}
+		برای خودش شماره ندارد. پس اگر مشتری جدیدی وارد شود، هیچ‌کدام از شرط‌های خط ۲۸ و ۳۲ برای بقیه مشتریان (و حتی خودش) برقرار نخواهد بود؛ و بلافاصله وارد
+		\LRE{Critical section}
+		می‌شود. پس این شرط نیز برقرار است.
+
+		\item {\textbf{
+			شرط
+			\LRE{Bounded-waiting}:
+		}}
+		تعداد مشتریانی که هر مشتری جدید در
+		\LRE{Entry section}
+		برایش صبر می‌کند محدود، و حداکثر برابر
+		$N - 1$
+		است. ورود مشتریان جدیدتر نیز به این تعداد چیزی اضافه نمی‌کند؛ چون مشتریان جدیدتر همه اولویت کمتری خواهند داشت. پس هر مشتری جدید، مدت زمان محدودی را صبر خواهد کرد و بالاخره وارد
+		\LRE{Critical section}
+		خواهد شد. پس این شرط نیز برقرار است.
+	\end{itemize}
+
+	\section*{سوال ۳}
+	\paragraph*{}
+
+	\begin{latin}
+		\begin{lstlisting}
+			monitor binSemaphore {
+				bool locked = false;
+				condition lockCondition;
+
+				signal() {
+					lock = false;
+					lockCondition.signal();
+				}
+
+				wait() {
+					while (locked) lockCondition.wait();
+					locked = true;
+				}
+			}
+		\end{lstlisting}
+	\end{latin}
+
+	چون در
+	\LRE{\verb|signal()|}،
+	تابع
+	\LRE{\verb|lockCondition.signal()|}
+	آخرین خط است، تفاوتی نمی‌کند که
+	\LRE{Condition variable}
+	ما با روش
+	\LRE{Signal-and-wait}
+	کار کند یا
+	\LRE{Signal-and-continue}.
+
+	\section*{سوال ۴}
+	\paragraph*{}
+	این راه، چندان راه خوبی نیست و فقط شرط
+	\LRE{Mutual exclusion}
+	را برآورده می‌کند:
+
+	\begin{itemize}
+		\item
+		هر پروسه‌ای که وارد
+		\LRE{Critical section}
+		شده،
+		\LRE{\verb|flag|}
+		خود را ست می‌کند؛ و در
+		\LRE{Entry section}
+		خود، ست شدن
+		\LRE{\verb|flag|}
+		پروسهٔ دیگر را بررسی می‌کند و در این صورت، وارد
+		\LRE{Critical section}
+		نمی‌شود. بنابراین هیچ‌وقت دو پروسه با هم وارد
+		\LRE{Critical section}
+		نمی‌شوند. پس شرط
+		\LRE{Mutual exclusion}
+		برقرار است.
+
+		\item
+		می‌توان طوری بین این دو پروسه
+		\LRE{Context-switch}
+		انجام داد که هیچ‌کدام وارد
+		\LRE{Critical section}
+		نشوند! فرض می‌کنیم پروسهٔ
+		\LRE{A}
+		تا آخر خط ۳ اجرا می‌شود؛ سپس
+		\LRE{Context-switch}
+		رخ داده و پروسهٔ
+		\LRE{B}
+		نیز تا آخر خط ۳ اجرا می‌شود. در این حالت،
+		\LRE{\verb|flag|}
+		هر دو پروسه ست شده است. سپس دوباره
+		\LRE{Contxt-switch}
+		رخ می‌دهد و خط ۴ پروسه‌ٔ
+		\LRE{A}
+		نیز اجرا شده و به خط اول این پروسه بر می‌گردیم. در اینجا نیز یک
+		\LRE{Context-switch}
+		دیگر رخ می‌دهد و اتفاق مشابه برای برای پروسهٔ
+		\LRE{B}
+		رخ می‌دهد و به خط اول در این پروسه نیز برمی‌گردیم.
+
+		در اینجا هر دو پروسه به خط اول بازگشته‌اند. اگر به همین روال
+		\LRE{Context-switch}
+		داشته باشیم، هیچ‌گاه از
+		\LRE{Entry section}
+		عبور نمی‌کنیم. پس شرط
+		\LRE{Progress}
+		برقرار نیست.
+
+		\item
+		فرض می‌کنیم پروسهٔ
+		\LRE{A}
+		تا آخر خط ۳ اجرا می‌شود و سپس
+		\LRE{Context-switch}
+		رخ می‌دهد. چون
+		\LRE{\verb|flag(A)|}
+		ست شده، پروسهٔ
+		\LRE{B}
+		در
+		\LRE{Entry section}اش
+		می‌ماند و جلوتر نمی‌رود. باز فرض می‌کنیم در حالتی که
+		\LRE{\verb|flag(B) = 0|}،
+		یک
+		\LRE{Context-switch}
+		دیگر رخ داده و به پروسهٔ
+		\LRE{A}
+		برمی‌گردیم. فرض می‌کنیم پروسهٔ
+		\LRE{A}
+		کد
+		\LRE{Critical section}اش
+		را کامل انجام می‌دهد، و به خط ۳ برمی‌گردد و پس از اجرای این خط، دوباره
+		\LRE{Context-switch}
+		داریم. اگر به همین روال
+		\LRE{Context-switch}
+		داشته باشیم، پروسهٔ
+		\LRE{B}
+		هیچ‌گاه موفق به ورود به
+		\LRE{Critical section}اش
+		نمی‌شود و فقط پروسهٔ
+		\LRE{A}
+		موفق خواهد بود. پس شرط
+		\LRE{Bounded-waiting}
+		هم برقرار نیست.
+	\end{itemize}
+
+	\section*{سوال ۵}
+	\paragraph*{}
+	روند اجرای دستورات به شکل زیر است. در این جدول،
+	\LRE{R}
+	نشانه وضعیت
+	\LRE{Running}،
+	و
+	\LRE{W}
+	نشانه وضعیت
+	\LRE{Waiting}
+	است.
+	\paragraph*{}
+	\begin{latin}
+		\centering
+		\begin{tabular}{c|c|c|c|c}
+			Process & Semaphore Value & $P_1$ & $P_2$ & $P_3$ \\
+			\hline
+			$P_1$ & $S = 0$ & R & R & R \\
+			\hline
+			$P_2$ & $S = -1$ & R & W & R \\
+			\hline
+			$P_3$ & $S = 0$ & R & R & R \\
+			\hline
+			$P_2$ & $S = -1$ & R & W & R \\
+			\hline
+			$P_1$ & $S = 0$ & R & R & R \\
+			\hline
+			$P_3$ & $S = 1$ & R & R & R \\
+			\hline
+			$P_2$ & $S = 0$ & R & R & R \\
+			\hline
+			$P_2$ & $S = -1$ & R & W & R \\
+			\hline
+			$P_3$ & $S = 0$ & R & R & R \\
+			\hline
+			$P_1$ & $S = 1$ & W & R & R \\
+		\end{tabular}
+	\end{latin}
+
+	\paragraph*{}
+	در انتها، تنها پروسه
+	$P_1$
+	در وضعیت
+	\LRE{Waiting}
+	خواهد بود. بقیه پروسه‌ها در وضعیت
+	\LRE{Running}
+	(یا دقیق‌تر بگوییم،
+	\LRE{Ready})
+	خواهند بود.
+
+	\section*{سوال ۶}
+	\paragraph*{}
+	سمافور
+	$S_2$
+	فقط در
+	$P_2$
+	استفاده شده و در همان خط اول نیز
+	\LRE{\verb|wait|}
+	روی آن صدا زده شده است. پس
+	$P_2$
+	همان اول به حالت
+	\LRE{waiting}
+	رفته و تا آخر در همین حالت می‌ماند؛ بنابراین می‌توانیم
+	$P_2$
+	را نادیده بگیریم.
+
+	\paragraph*{}
+	پروسه
+	$P_0$
+	نیز همان ابتدا به حالت
+	\LRE{waiting}
+	می‌رود؛ اما پس از یک بار اجرای حلقه‌ی
+	$P_1$،
+	دوباره می‌تواند اجرا شود.
+
+	\paragraph*{}
+	در ابتدای حلقه‌ی
+	$P_1$
+	نیز یک
+	\LRE{\verb|wait(S1)|}
+	و در انتهای حلقه هم یک
+	\LRE{\verb|release(S1)|}
+	داریم. چون هیچ
+	\LRE{\verb|wait|}
+	دیگری در حلقه نداریم و در هیچ پروسهٔ دیگری نیز روی
+	$S_1$
+	\LRE{\verb|wait|}
+	نداریم، عملا
+	$P_1$
+	هیچ‌گاه متوقف نمی‌شود و همیشه اجرا خواهد شد.
+	لازم به ذکر است که اجرای خط دوم
+	$P_0$
+	نیز تاثیری بر این موضوع نخواهد داشت.
+
+	\paragraph*{}
+	بنابراین عبارت مشهور
+	\LRE{\verb|"ALI ALAVI"|}
+	به تعداد نامعلومی و تا زمان خاتمه
+	$P_1$
+	(مثلاً توسط سیستم‌عامل)
+	 چاپ خواهد شد.
+
+	 \section*{سوال ۷}
+	 \paragraph*{}
+
+	 این حالت از
+	 \LRE{Condition variable}،
+	 به جای استفاده از صف
+	 \LRE{FIFO}
+	 برای نگهداری پروسه‌های منتظر، از یک صف اولویت استفاده می‌کند. تابع
+	 \LRE{\verb|wait|}
+	 نیز یک مقدار
+	 $c$
+	 می‌گیرد، و پروسه فعلی را با این مقدار اولویت وارد صف می‌کند. هنگامی که روی این
+	 \LRE{Condition variable}،
+	 تابع
+	 \LRE{\verb|signal|}
+	 را صدا بزنیم، پروسه با اولویت بیشتر از صف بیرون می‌آید و شروع به کار می‌کند. به عبارت دیگر، زمان ورود به صف دیگر ملاک نیست.
+
+\end{document}

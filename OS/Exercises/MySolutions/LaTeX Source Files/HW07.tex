@@ -1,0 +1,348 @@
+\documentclass{article}
+
+%\usepackage{graphicx}
+%\usepackage{float}
+\usepackage{listings}
+\usepackage{lstautogobble}
+\usepackage[letterpaper, margin=1in]{geometry}
+%\usepackage{enumitem}
+\usepackage{amsmath}
+%\usepackage[normalem]{ulem}
+%\usepackage{pgfgantt}
+\usepackage{xepersian}
+
+%\graphicspath{{./img}}
+\settextfont{XB Niloofar}
+
+\title{سیستم‌های عامل - دکتر ابراهیمی‌مقدم}
+\author{امیرحسین منصوری - ۹۹۲۴۳۰۶۹}
+\date{تمرین سری هفتم}
+
+\begin{document}
+	\maketitle
+
+	\section*{سوال ۱}
+	\subsection*{\LRE{Internal/External Fragmentation}}
+	\paragraph*{}
+	پدیدهٔ
+	\LRE{Internal Fragmentation}
+	وقتی رخ می دهد که حافظه را به تکه‌های کوچکی تقسیم کنیم، و هنگام اختصاص حافظه، صرفا بتوانیم یک یا چندتا از این تکه‌های کوچک را اختصاص دهیم (یعنی نتوان تکهٔ کوچکتری را اختصاص داد). در این حالت، اگر به حافظه‌ای کمتر از اندازه این تکه‌ها نیاز داشته باشیم، یک تکهٔ کامل اختصاص می‌یابد و عملا قسمتی از فضای این تکه هدر می‌رود و استفاده نمی‌شود.
+
+	\paragraph*{}
+	در مقابل،
+	\LRE{External Fragmentation}
+	وقتی رخ می‌دهد که حافظه را به صورت غیر پیوسته اختصاص بدیم. در این صورت بین فضا‌های اختصاص داده شده، حفره‌های خالی وجود خواهند داشت و ممکن است این حفره‌ها آنقدر کوچک باشند که قابل استفاده نباشند و نتوان آن‌ها را اختصاص داد. در نتیجه ممکن است در مجموع فضای خالی به اندازهٔ مورد نیاز وجود داشته باشد؛ اما این فضای خالی به صورت حفره‌های کوچک و تکه‌تکه شده پراکنده در حافظه وجود دارد و قابل استفاده نیست.
+
+	\subsection*{\LRE{Static/Dynamic Linking}}
+	\paragraph*{}
+	در روش
+	\LRE{Static Linking}،
+	تمامی کدهای برنامه که در
+	\LRE{Object file}های
+	حاصل از کامپایل موجود هستند، در فایل اجرایی نهایی قرار می‌گیرند. یک مزیت این روش این است که نیازی به نصب بودن کتابخانه یا وابستگی خاصی برای اجرای برنامه نیست؛ چون تمامی کدهای مورد نیاز در فایل اجرایی موجود است. یک ایراد این روش این است که اگر دو برنامه داشته باشیم که کد های مشترکی داشته باشند، این کدهای مشترک حین اجرای این دو برنامه، دوبار در حافظه قرار می‌گیرند؛ که چندان بهینه نیست.
+
+	\paragraph*{}
+	اما در مقابل، در روش
+	\LRE{Dynamic Linking}
+	تنها برخی کدهای موجود در
+	\LRE{Object File}ها
+	در فایل اجرایی برنامه قرار می‌گیرند و فقط ارجاعاتی به کدهای دیگر در برنامه نهایی باقی می‌ماند؛ کد‌های دیگر که معمولاً مربوط به کتاب‌خانه‌های استفاده شده است، در فایل‌های جداگانه قرار می‌گیرند (مثلاً در ویندوز، این فایل‌ها به فایل‌های DLL مشهورند). سپس در زمان اجرای برنامه، سیستم‌عامل این کدهای دیگر را در حافظه قرار می‌دهد و عمل
+	\LRE{Linking}
+	را حین اجرا و در زمان نیاز انجام می‌دهد. یک مزیت این روش، این است که اگر دو برنامه در حال اجرا، از کتاب‌خانه‌های مشترکی استفاده کرده باشند، سیستم‌عامل می‌تواند این کتاب‌خانه را تنها یک‌بار در حافظه قرار دهد و هر دو برنامه را به قسمت یکسانی از حافظه که کد در آن قرار گرفته ارجاع دهد. مزیت دیگر، سبک‌شدن حجم فایل اجرایی نهایی است. از معایب این روش نیز نیازمند بودن به نصب بودن کتاب‌خانه‌های موردنیاز بر روی سیستم موردنظر است.
+
+	\subsection*{\LRE{Logical/Physical Address}}
+	\paragraph*{}
+	\LRE{Logical Address}،
+	آدرسی است که توسط پردازنده حین اجرای برنامه تولید می‌شود؛ و نسبت به فضای آدرس دهی هر پروسه مشخص می‌شود. این آدرس باید بعداً به یک
+	\LRE{Physical Address}
+	ترجمه شود.
+	\LRE{Physical Address}
+	آدرسی است که در نهایت به حافظه اصلی داده می‌شود؛ و در واقع از دید سخت‌افزار، همان عددی است که به عنوان آدرس روی پایه‌های چیپ حافظه می‌رود.
+
+	\section*{سوال ۲}
+	\subsection*{\LRE{First-Fit}}
+	\paragraph*{}
+
+	\begin{latin}
+		\centering
+		\begin{tabular}{c|c|c}
+			Allocation request & Allocated Hole & State of holes \\
+			\hline
+			5k & 10k & \textbf{5k}, 12k, 4k, 8k, 6k\\
+			\hline
+			8k & 12k & 5k, \textbf{4k}, 4k, 8k, 6k \\
+			\hline
+			3k & 5k &  \textbf{2k}, 4k, 4k, 8k, 6k\\
+			\hline
+			6k & 8k & 2k, 4k, 4k, \textbf{2k}, 6k\\
+			\hline
+			10k & - & 2k, 4k, 4k, 2k, 6k\\
+		\end{tabular}
+	\end{latin}
+
+	\subsection*{\LRE{Best-Fit}}
+	\paragraph*{}
+
+	\begin{latin}
+		\centering
+		\begin{tabular}{c|c|c}
+			Allocation request & Allocated Hole & State of holes \\
+			\hline
+			5k & 6k & 10k, 12k, 4k, 8k, \textbf{1k}\\
+			\hline
+			8k & 8k & 10k, 12k, 4k, \textbf{0k}, 1k \\
+			\hline
+			3k & 4k &  10k, 12k, \textbf{1k}, 1k \\
+			\hline
+			6k & 10k & \textbf{4k}, 12k, 1k, 1k\\
+			\hline
+			10k & 12k & 4k, \textbf{2k}, 1k, 1k\\
+		\end{tabular}
+	\end{latin}
+
+	\subsection*{\LRE{Best-Fit}}
+	\paragraph*{}
+
+	\begin{latin}
+		\centering
+		\begin{tabular}{c|c|c}
+			Allocation request & Allocated Hole & State of holes \\
+			\hline
+			5k & 12k & 10k, \textbf{7k}, 4k, 8k, 6k\\
+			\hline
+			8k & 10k & \textbf{2k}, 7k, 4k, 8k, 6k\\
+			\hline
+			3k & 7k &  2k, \textbf{4k}, 4k, 8k, 6k\\
+			\hline
+			6k & 8k & 2k, 4k, 4k, \textbf{2k}, 6k\\
+			\hline
+			10k & - & 2k, 4k, 4k, 2k, 6k\\
+		\end{tabular}
+	\end{latin}
+
+	\paragraph*{}
+	در نهایت، تنها الگوریتم
+	\LRE{Best-Fit}
+	موفق شده تمام درخواست‌ها را پاسخ دهد؛ و حتی نیز موفق شده یکی از حفره‌ها را از بین ببرد. الگوریتم‌های دیگر در پاسخ به درخواست آخر موفق نبوده‌اند؛ حتی با این که حافظه کافی در سیستم موجود است.
+
+	\section*{سوال ۳}
+	\subsection*{الف)}
+	\paragraph*{}
+	یک دسترسی برای پیدا کردن
+	\LRE{Frame number}
+	مربوطه، و یک دسترسی برای خواندن صفحه مربوطه نیاز داریم؛ پس در کل ۲ دسترسی به حافظه اصلی نیاز است و این دو دسترسی
+	$80ns \times 2 = 160ns$
+	زمان خواهد برد.
+
+	\subsection*{ب)}
+	\paragraph*{}
+	اگر دسترسی به
+	\LRE{TLB}
+	به صورت سریال باشد:
+
+	\begin{equation*}
+		\textrm{ETA} = 0.7(10 + 80) + 0.3(10 + 80 + 80) = 114ns
+	\end{equation*}
+
+	اگر دسترسی به صورت موازی باشد:
+
+	\begin{equation*}
+		\textrm{ETA} = 0.7(10 + 80) + 0.3(80 + 80) = 111ns
+	\end{equation*}
+
+	\section*{سوال ۴}
+	\paragraph*{}
+	با توجه به اعداد داده شده،
+	\LRE{Page table}
+	ما دارای
+	$\frac{2^3\times2^{30}}{2^4} = 2^{29}$
+	سطر خواهد بود که این عدد، متناظر با تعداد کل صفحات ممکن در فضای آدرس‌دهی
+	\LRE{Logical}
+	خواهد بود و برای نمایش آن، به ۲۹ بیت نیاز داریم. همچنین چون اندازه هر صفحه
+	$2^3 \times 2^{10} = 2^{13}$
+	است،
+	\LRE{Page offset}
+	ما نیز ۱۳ بیتی خواهد بود. در نتیجه فضای آدرس‌دهی
+	\LRE{Logical}
+	ما
+	$29 + 13 = 42$
+	بیت خواهد داشت.
+
+	\section*{سوال ۵}
+	اگر اندازه صفحه بیش از حد بزرگ باشد، میزان و شدت
+	\LRE{Internal fragementation}
+	بالا می‌رود. اگر هم اندازه صفحه بسیار کوچک باشد، اندازهٔ
+	\LRE{Page table}
+	بزرگ می‌شود؛ تا جایی که نمی‌توان آن را مدیریت کرد؛ یا مثلا در حافظه اصلی جا نمی‌شود.
+
+	\section*{سوال ۶}
+	\subsection*{الف)}
+	\paragraph*{}
+	پدیدهٔ
+	\LRE{thrashing}
+	وقتی رخ می‌دهد که یک پروسه، بیشتر زمان اجرایش را صرف
+	\LRE{swap}
+	کردن
+	\LRE{page}ها
+	بین حافظه اصلی و حافظه مجازی می‌کند؛ معمولا به این علت که به اندازه کافی و مورد نیاز
+	\LRE{frame}
+	ندارد. این پدیده باعث کاهش
+	\LRE{Utilization}
+	می‌شود و به همین دلیل اگر درست تشخیص داده نشود، ممکن است سیستم‌عامل را وادار کند درجه
+	\LRE{Multiprogramming}
+	را بالا ببرد که اوضاع را بهتر نمی‌کند (و حتی می‌تواند بدتر کند).
+
+	\subsection*{ب)}
+	\paragraph*{}
+	به مجموعهٔ تمام آدرس‌های
+	\LRE{Virtual}
+	که پردازنده می‌تواند بسازد، فضای آدرس‌دهی مجازی گفته می‌شود.
+
+	\section*{سوال ۷}
+	\paragraph*{}
+	روند دسترسی به صفحات به صورت زیر است.
+	\paragraph*{}
+	\begin{latin}
+		\centering
+		\begin{tabular}{c|c|c|c|c|c}
+			Requested Page & Status & Frame 0 & Frame 1 & Frame 2 & Frame 3 \\
+			\hline
+			5 & Page Fault & \textbf{5} & - & - & - \\
+			\hline
+			4 & Page Fault & 5 & \textbf{4} & - & - \\
+			\hline
+			2 & Page Fault & 5 & 4 & \textbf{2} & - \\
+			\hline
+			7 & Page Fault & 5 & 4 & 2 & \textbf{7} \\
+			\hline
+			5 & Hit & 5 & 4 & 2 & 7 \\
+			\hline
+			3 & Page Fault & 5 & \textbf{3} & 2 & 7 \\
+			\hline
+			5 & Hit & 5 & 3 & 2 & 7 \\
+			\hline
+			2 & Hit & 5 & 3 & 2 & 7 \\
+			\hline
+			7 & Hit & 5 & 3 & 2 & 7 \\
+			\hline
+			4 & Page Fault & 5 & \textbf{4} & 2 & 7 \\
+		\end{tabular}
+	\end{latin}
+
+	\paragraph*{}
+	پس در
+	۶۰٪
+	مواقع دچار
+	\LRE{Page Fault}
+	شده‌ایم. بنابراین
+
+	\begin{equation*}
+		\textrm{EAT} = (1-0.6)\times(100ns) + (0.6)(1000000ns) = 600040ns
+	\end{equation*}
+
+	\section*{سوال ۸}
+	\paragraph*{}
+
+	روند اجرای
+	\LRE{FIFO}
+	به صورت زیر است.
+
+	\paragraph*{}
+	\begin{latin}
+		\centering
+		\begin{tabular}{c|c|c|c|c}
+			Requested Page & Status & Frame 0 & Frame 1 & Frame 2 \\
+			\hline
+			9 & Page Fault & \textbf{9} & - & - \\
+			\hline
+			1 & Page Fault & 9 & \textbf{1} & - \\
+			\hline
+			8 & Page Fault & 9 & 1 & \textbf{8} \\
+			\hline
+			9 & Hit & 9 & 1 & 8 \\
+			\hline
+			2 & Page Fault & \textbf{2} & 1 & 8 \\
+			\hline
+			1 & Hit & 2 & 1 & 8 \\
+			\hline
+			3 & Page Fault & 2 & \textbf{3} & 8 \\
+			\hline
+			0 & Page Fault & 2 & 3 & \textbf{0} \\
+			\hline
+			1 & Page Fault & \textbf{1} & 3 & 0 \\
+			\hline
+			3 & Hit & 1 & 3 & 0 \\
+			\hline
+			2 & Page Fault & 1 & \textbf{2} & 0 \\
+		\end{tabular}
+	\end{latin}
+
+	\paragraph*{}
+	در نهایت ۸
+	\LRE{Page Fault}
+	داشتیم. همچنین روند الگوریتم
+	\LRE{Optimal}
+	به صورت زیر است.
+
+	\paragraph*{}
+	\begin{latin}
+		\centering
+		\begin{tabular}{c|c|c|c|c}
+			Requested Page & Status & Frame 0 & Frame 1 & Frame 2 \\
+			\hline
+			9 & Page Fault & \textbf{9} & - & - \\
+			\hline
+			1 & Page Fault & 9 & \textbf{1} & - \\
+			\hline
+			8 & Page Fault & 9 & 1 & \textbf{8} \\
+			\hline
+			9 & Hit & 9 & 1 & 8 \\
+			\hline
+			2 & Page Fault & \textbf{2} & 1 & 8 \\
+			\hline
+			1 & Hit & 2 & 1 & 8 \\
+			\hline
+			3 & Page Fault & 2 & 1 & \textbf{3} \\
+			\hline
+			0 & Page Fault & \textbf{0} & 1 & 3 \\
+			\hline
+			1 & Hit & 0 & 1 & 3 \\
+			\hline
+			3 & Hit & 0 & 1 & 3 \\
+			\hline
+			2 & Page Fault & \textbf{2} & 1 & 3 \\
+		\end{tabular}
+	\end{latin}
+
+	\paragraph*{}
+	در اینجا ۷
+	\LRE{Page Fault}
+	رخ داد. بنابراین
+	\LRE{FIFO}
+	به اندازه یک
+	\LRE{Page Fault}
+	ضعیف‌تر عمل کرده است.
+
+	\section*{سوال ۹}
+	\paragraph*{}
+
+
+	\section*{سوال ۱۱}
+	\paragraph*{}
+	چون
+	$512 = 2^9$
+	فریم داریم، پس ۹ بیت برای مشخص کردن هر فریم کافی است. به طور مشابه، چون
+	$2048 = 2^{11}$
+	صفحه داریم، پس ۱۱ بیت هم برای مشخص کردن هر صفحه کافی است. در نهایت چون اندازه صفحه
+	$4\textrm{kb} = 2^{12} \textrm{bytes}$
+	است، ۱۲ بیت برای
+	\LRE{Page offset}
+	می‌خواهیم.
+
+	\paragraph*{}
+	با تفاسیر بالا، به
+	$9 + 12 = 21$
+	بیت برای فضای آدرس‌دهی فیزیکی، و
+	$11 + 12 = 23$
+	بیت برای فضای آدرس‌دهی مجازی نیاز داریم.
+\end{document}
