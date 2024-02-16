@@ -3,7 +3,7 @@
 Exercises were done individually. LaTeX source files are also included.
 
 ## Compiling
-`xelatex` was used to compile source files. Several LaTeX packages, most notably `xepersian` were also used and need to be installed before compiling.
+`xelatex` was used to compile source files. Several LaTeX packages, most notably `xepersian`, were also used and need to be installed before compiling.
 
 After installing `xelatex` and required packages, compile `.tex` files:
 

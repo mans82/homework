@@ -4,7 +4,7 @@ This repository contains solutions to my university homework, including exercise
 
 ## Disclaimer
 
-The solutions provided here are NOT guaranteed to be correct, or complete. Some solutions may be missing. Software projects in this repo are mostly unmaintained and their source code is from months or years ago; so they might not build or run properly at the time.
+The solutions provided here are NOT guaranteed to be correct, or complete. Some solutions may be missing. Software projects in this repository are mostly unmaintained and their source code is from months or years ago; so they might not build or run properly at the time.
 
 This repository is only for learning purposes. I will NOT be responsible for any acts of academic misconduct. In fact, I strongly oppose plagiarism.
 
