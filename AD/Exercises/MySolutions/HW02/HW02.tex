@@ -1,0 +1,414 @@
+\documentclass{article}
+
+%\usepackage{graphicx}
+%\usepackage{float}
+\usepackage[letterpaper, margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{lstautogobble}
+\usepackage{xepersian}
+
+%\graphicspath{{./img}}
+\settextfont{XB Niloofar}
+
+\title{طراحی الگوریتم - دکتر قوامی‌زاده}
+\author{امیرحسین منصوری - ۹۹۲۴۳۰۶۹}
+\date{تمرین سری دوم}
+
+\allowdisplaybreaks
+
+\begin{document}
+	\maketitle
+
+	\section*{سوال ۱}
+	\subsection*{الف)}
+	\paragraph*{}
+
+	می‌دانیم وجود دارد
+	$c_1, c_2, c_3, c_4, n_0, n_1$
+	به قسمی که
+
+	\begin{align*}
+		\forall n &\ge n_0, c_1g(n) \le f(n) \le c_2g(n) \\
+		\forall n &\ge n_1, c_3h(n) \le g(n) \le c_4h(n)
+	\end{align*}
+
+	نامساوی‌های بالا به ازای همه
+	\begin{align*}
+		n \ge n_2 &= \max(n_0, n_1)
+	\end{align*}
+
+	نیز درست است. داریم
+
+	\begin{align*}
+		&f(n) \le c_2g(n) \le c_2c_4h(n) \; (\forall n \ge n_2) \\
+		&f(n) \ge c_1g(n) \ge c_1c_3h(n) \; (\forall n \ge n_2) \\
+		\Rightarrow
+		c_1c_3h(n) \le &f(n) \le c_2c_4h(n) \; (\forall n \ge n_2)
+	\end{align*}
+
+	تعریف می‌کنیم
+	$c_5 = c_1c_3, c_6 = c_2c_4$.
+	بنابراین
+	\begin{equation*}
+		c_5h(n) \le f(n) \le c_6h(n) \; (\forall n \ge n_2)
+	\end{equation*}
+
+	و بنابراین
+	$f(n) \in \Theta(h(n))$.
+
+	\subsection*{ب)}
+	\paragraph*{}
+
+	طرف اول را اثبات می‌کنیم. می‌دانیم وجود دارد
+	$c_1, c_2, n_0$
+	به قسمی که
+
+	\begin{gather*}
+		c_1g(n) \le f(n) \le c_2g(n) \; (\forall n \ge n_0) \\
+		c_1, c_2, n_0 > 0
+	\end{gather*}
+
+	داریم
+
+	\begin{align*}
+		f(n) \le c_2g(n) &\Rightarrow g(n) \ge \frac{1}{c_2}f(n) \\
+		f(n) \ge c_1g(n) &\Rightarrow g(n) \le \frac{1}{c_1}f(n)
+	\end{align*}
+
+	بنابراین
+
+	\begin{equation*}
+		\frac{1}{c_2}f(n) \le g(n) \le \frac{1}{c_1}f(n) \; (\forall n \ge n_0)
+	\end{equation*}
+
+	پس
+	$g(n) \in \Theta(n)$.
+	اثبات طرف دیگر نیز کاملا مشابه اثبات بالا است.
+
+	\subsection*{ج)}
+	\paragraph*{}
+	به ازای
+	$f(n) = \frac{1}{n}$
+	جمله نادرست می‌شود. زیرا اگر
+	$\frac{1}{n} \in O(\frac{1}{n^2})$
+	آن‌گاه به ازای یک
+	$c_1, n_0$
+	باید داشته باشیم
+
+	\begin{equation*}
+		\frac{1}{n} \le \frac{c_1}{n^2}
+	\end{equation*}
+
+	بنابراین
+
+	\begin{align*}
+		n &\ge \frac{1}{c_1}n^2 \\
+		\Rightarrow
+		1 &\ge \frac{n}{c_1} \\
+		\Rightarrow
+		n &\le c_1
+	\end{align*}
+
+	بنابراین نمی‌توان
+	$n_0$ای
+	پیدا کرد که به ازای هر
+	$n \ge n_0$
+	نامساوی بالا برقرار باشد. پس
+	$\frac{1}{n} \notin O(\frac{1}{n^2})$
+	و جمله در حالت کلی درست نیست.
+
+	\subsection*{د)}
+	\paragraph*{}
+
+	به ازای
+	$f(n) = 2n$
+	و
+	$g(n) = n$
+	جمله نادرست می‌شود. مشابه سوال قبل، اگر
+	$3^{2n} \in O(3^n)$
+	آن‌گاه باید داشته باشیم
+
+	\begin{align*}
+		3^{2n} &\le c_13^n \\
+		\Rightarrow
+		3^n &\le c_1 \\
+		\Rightarrow
+		n &\le \log_3 c_1
+	\end{align*}
+
+	بنابراین نمی‌توان
+	$n_0$ای
+	پیدا کرد که به ازای هر
+	$n \ge n_0$
+	نامساوی بالا برقرار باشد. پس نتیجه می‌گیریم
+	$3^{2n} \notin O(3^n)$
+	و جمله در حالت کلی درست نیست.
+
+	\section*{سوال ۲}
+	\subsection*{الف)}
+	\paragraph*{}
+
+	فرض می‌کنیم $c$ای وجود دارد که
+	\begin{equation*}
+		[\lg n]! \in O(n^c)
+	\end{equation*}
+	در این صورت باید
+	$k$
+	و
+	$n_0$ای
+	وجود داشته باشد که
+	\begin{equation*}
+		[\lg n]! \le kn^c \; (\forall n > n_0)
+	\end{equation*}
+
+	و بنابراین
+	\begin{equation*}
+		\lg([\lg n]!) \le ck \lg n
+	\end{equation*}
+
+	بنا به تقریب استرلینگ می‌توان نشان داد
+	\begin{align*}
+		\lg(n!) &\approx \lg\left(\sqrt{2\pi n}\left(\frac{n}{e}\right)^n\right) \\
+		&=
+		\lg\left(\sqrt{2\pi n}\right)
+		+
+		\lg \left(\frac{n}{e}\right)^n \\
+		&=
+		\lg \sqrt{2\pi} + \lg \sqrt{n} + n\lg \left(\frac{n}{e}\right) \\
+		&=
+		\lg \sqrt{2\pi} + \frac{1}{2}\lg n + n\lg n - n\lg e \\
+		&\in \Theta(n \lg n)
+	\end{align*}
+
+	به طور مشابه می‌توان نتیجه گرفت
+	\begin{equation*}
+		\lg([\lg n]!) \in \Theta([\lg n] \lg [\lg n])
+	\end{equation*}
+
+	چون به ازای
+	$n \ge 2$،
+	$\frac{1}{2}n \le [n] \le n$
+	بنابراین
+	$[n] \in \Theta(n)$
+	و می‌توان از علامت کف صرف نظر کرد:
+	\begin{equation*}
+		\lg([\lg n]!) \in \Theta(\lg n \lg \lg n)
+	\end{equation*}
+
+	چون به ازای
+	$n > 4$
+	داریم
+	$\lg n \lg \lg n > \lg n$
+	بنابراین
+
+	\begin{equation*}
+		\lg([\lg n]!) \in \omega(\lg n)
+	\end{equation*}
+
+	و به عبارتی، پیچیدگی زمانی بالاتر از $\lg n$ داریم. پس نامساوی اولیه نمی‌تواند به ازای هیچ
+	$c, k, n_0$ای
+	درست باشد.
+
+	\subsection*{ب)}
+	\paragraph*{}
+
+	مشابه قسمت قبل
+	\begin{align*}
+		\lg ([\lg \lg n]!) &\in \Theta \lg ([\lg \lg n] \lg [\lg \lg n]) \\
+		&\in \Theta(\lg \lg n \lg \lg \lg n) \\
+		&\in o(\lg \lg n \lg \lg n) \\
+		&\in o(\lg^2 \lg n)
+	\end{align*}
+
+	لگاریتم (توانی) یک چیز، از خود آن چیز کندتر رشد می‌کند. پس
+	\begin{equation*}
+		\lg ([\lg \lg n]!) \in o(\lg^2 \lg n) \in O(\lg n)
+	\end{equation*}
+
+	پس می‌توان
+	$c, k, n_0$ای
+	پیدا کرد که در نامساوی قسمت قبل برقرار باشد. بنابراین
+	$[\lg \lg n]! \in O(n^c)$.
+
+	\section*{سوال ۳}
+	\paragraph*{}
+
+	برای سادگی فرض می‌کنیم
+	\begin{gather*}
+		T(1) = 0 \\
+		f(n) = n^{\log_b a} \lg_k n
+	\end{gather*}
+	با جایگزینی داریم
+
+	\begin{align*}
+		T(n) &= aT(\frac{n}{b}) + f(n) \\
+		&= a(aT(\frac{n}{b^2}) + f(\frac{n}{b})) + f(n) \\
+		&= a^2 T(\frac{n}{b^2}) + a^1f(\frac{n}{b^1}) + f(n) \\
+		&= ... \\
+		&= \sum_{i=0}^{\log_b n - 1} a^i f(\frac{n}{b^i}) \\
+		&= \sum_{i=0}^{\log_b n - 1} a^i \left(\frac{n}{b^i}\right)^{\log_b a} \left(\lg \left(\frac{n}{b^i}\right)\right)^k \\
+		&= \sum_{i=0}^{\log_b n - 1} a^i \left(\frac{n^{\log_b a}}{b^{i{\log_b a}}}\right) \left(\lg \left(\frac{n}{b^i}\right)\right)^k \\
+		&= \sum_{i=0}^{\log_b n - 1} a^i \left(\frac{n^{\log_b a}}{a^i}\right) \left(\lg \left(\frac{n}{b^i}\right)\right)^k \\
+		&= \sum_{i=0}^{\log_b n - 1}  n^{\log_b a} \left(\lg \left(\frac{n}{b^i}\right)\right)^k \\
+		&= \sum_{i=0}^{\log_b n - 1}  n^{\log_b a} \left(\frac{\log_b \left(\frac{n}{b^i}\right)}{\log_b 2}\right)^k \\
+		&= n^{\log_b a} \log_b^{-k} 2 \sum_{i=0}^{\log_b n - 1} \left(\log_b n - i\right)^k \\
+		&= n^{\log_b a} \log_b^{-k} 2 \sum_{j=1}^{\log_b n} j^k \\
+	\end{align*}
+
+		می‌توان مجموع را با انتگرال تقریب زد.
+
+	\begin{align*}
+		\sum_{j=1}^{\log_b n} j^k
+		&\approx \int_{0}^{\log_b n} x^k dx\\
+		&= \left.\frac{x^{k+1}}{k+1}\right|^{\log_b n}_{0} \\
+		&= \frac{\log^{k+1}_b n}{k+1}
+	\end{align*}
+
+	درنهایت
+	\begin{equation*}
+		T(n) \in \Theta(n^{\log_b a} \log_b^{k+1} n)
+	\end{equation*}
+
+	در نتیجه برای
+	\begin{equation*}
+		T(n) = 4T(\frac{n}{2}) + n^2 \lg^5 n
+	\end{equation*}
+
+	به دست می‌آید
+	\begin{equation*}
+		T(n) \in \Theta(n^2 \lg^6 n)
+	\end{equation*}
+
+	\section*{سوال ۴}
+	\paragraph*{}
+
+	با توجه به این که
+	\begin{enumerate}
+		\item
+		این تابع بازگشتی است؛
+
+		\item
+		شرط خاتمه آن فقط به مقدار
+		\LRE{\verb|m|}
+		بستگی دارد؛
+	\end{enumerate}
+
+	می‌توان نتیجه گرفت که تابع هزینه
+	\LRE{\verb|function|}
+	فقط تابعی از
+	\LRE{\verb|m|}
+	است و به
+	\LRE{\verb|n|}
+	بستگی ندارد.
+
+	\paragraph*{}
+	همچنین در این تابع، خود تابع صدا زده می‌شود و عملیات دیگر همه پیچیدگی زمانی
+	$O(1)$
+	دارند. بنابراین تابع هزینه
+	\LRE{\verb|function|}
+	را می‌توان به صورت
+	\begin{equation*}
+		T(m) = T(\frac{m}{2}) + c
+	\end{equation*}
+
+	نوشت (که در آن $c$ یک ثابت و نشان‌دهندهٔ پیچیدگی زمانی عملیات دیگر است). با استفاده از قضیه‌ای که در سوال ۳ اثبات کردیم، با مقایسه
+	$m^{\log_2 1} \in \Theta(1)$
+	و
+	$c \in \Theta(1)$،
+	نتیجه می‌گیریم
+	$T(m) \in \Theta(\log m)$.
+
+	\section*{سوال ۵}
+	\subsection*{الف)}
+	\paragraph*{}
+	با رسم درخت بازگشت، می‌توان دید که
+	مجموع هزینه ردیف $i$، برابر
+	$\left(\frac{5}{8}\right)^in$
+	است. همچنین ارتفاع درخت حداکثر برابر
+	$[\log_4 n]$
+	است. داریم
+
+	\begin{align*}
+		T(n) &\le \sum_{i=0}^{[\log_4 n]} \left(\frac{5}{8}\right)^in \\
+		&\le n \sum_{i=0}^{\infty} \left(\frac{5}{8}\right)^i \\
+		&\le n \left(\frac{1}{1-\frac{5}{8}}\right) \\
+	\end{align*}
+
+	در نتیجه
+	\begin{equation*}
+		T(n) \in O(n)
+	\end{equation*}
+
+	\subsection*{ب)}
+	\paragraph*{}
+
+	داریم
+	\begin{equation*}
+		T(n) - 4T(n-1) + 5T(n-2) - 2T(n-3) = 0
+	\end{equation*}
+
+	این رابطه بازگشتی همگن خطی است. معادله مشخصه را به صورت زیر نوشته و حل می‌کنیم.
+
+	\begin{align*}
+		x^3 - 4x^2 + 5x - 2 &= 0 \\
+		(x-1)(x^2 - 3x + 2) &= 0 \\
+		(x-1)(x-1)(x-2) &= 0 \\
+		\Rightarrow
+		\begin{cases}
+			x = 1, r_1 = 2 \\
+			x = 2, r_2 = 1
+		\end{cases}
+	\end{align*}
+
+	جواب عمومی به صورت زیر خواهد بود.
+
+	\begin{equation*}
+		T(n) = c_1r1^n + c_2n1^n + c_32^n
+	\end{equation*}
+
+	با فرض مثبت بودن همه ضرایب،
+	$T(n) \in \Theta(2^n)$.
+
+	\subsection*{ج)}
+	\paragraph*{}
+
+	تغییر متغیر
+	$S(n) = \frac{T(n)}{n}$
+	را انجام می‌دهیم. داریم
+
+	\begin{align*}
+		S(n) &= \frac{T(n)}{n} = 4\frac{T(\sqrt{n})}{\sqrt{n}} + \lg^2 n \lg^3 \lg n \\
+		&= 4S(\sqrt{n}) + \lg^2 n \lg^3 \lg n
+	\end{align*}
+
+	دوباره تغییر متغیر
+	$P(i) = S(2^i)$
+	را انجام می‌دهیم. داریم
+
+	\begin{align*}
+		P(i) &= S(2^i) = 4S(2^{\frac{i}{2}}) + i^2 \lg^3 i \\
+		&= 4P(\frac{i}{2}) + i^2 \lg^3 i \\
+	\end{align*}
+
+	با توجه به قضیه‌ای که در سوال ۳ ثابت کردیم، داریم
+	\begin{equation*}
+		P(i) \in \Theta(i^2 \lg^4 i) \\
+	\end{equation*}
+
+	چون
+	$n = 2^i$،
+	بنابراین
+	$i = \lg n$
+	و
+	\begin{equation*}
+		S(n) = P(\lg n) \in \Theta(\lg^2 n \lg^4 \lg n)
+	\end{equation*}
+
+	همچنین
+	\begin{equation*}
+		T(n) = nS(n) \in \Theta(n \lg^2 n \lg^4 \lg n)
+	\end{equation*}
+
+
+\end{document}

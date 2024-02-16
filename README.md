@@ -20,3 +20,4 @@ This repository is only for learning purposes. I will NOT be responsible for any
 * Digital Logic Circuits Design (DLC)
 * Engineering Statistics (ES)
 * Operating Systems (OS)
+* Algorithm Design (AD)
