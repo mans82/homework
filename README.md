@@ -21,3 +21,4 @@ This repository is only for learning purposes. I will NOT be responsible for any
 * Engineering Statistics (ES)
 * Operating Systems (OS)
 * Algorithm Design (AD)
+* Signals and Systems (SIG)

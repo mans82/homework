@@ -1,0 +1,396 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{xepersian}
+
+\settextfont{XB Niloofar}
+
+\title{سیگنال‌ها و سیستم‌ها - دکتر سلیمی‌بدر}
+\author{امیرحسین منصوری - ۹۹۲۴۳۰۶۹}
+\date{تمرین سری ۲}
+
+\begin{document}
+	\maketitle
+
+	\section*{سوال ۱}
+	\paragraph*{}
+	با توجه به بسط تیلور داریم:
+
+	\begin{align*}
+		e^x &= \sum_{n = 0}^{\infty} \frac{x^n}{n!} \\
+		\Rightarrow
+		e^{j \theta} &= \sum_{n = 0}^{\infty} \frac{(j \theta)^n}{n!} \\
+		&= 1 + \frac{j \theta}{1!} + \frac{(j \theta)^2}{2!} + \frac{(j \theta)^3}{3!}
+		+ ... \\
+		&= 1 + \frac{j \theta}{1!}
+		- \frac{\theta ^ 2}{2!}
+		- \frac{j \theta ^ 3}{3!}
+		+ \frac{\theta ^ 4}{4!}
+		+ \frac{j \theta ^ 5}{5!}
+		+ ... \\
+		&= \left(1 - \frac{\theta ^ 2}{2!} + \frac{\theta ^ 4}{4!} - ...\right)
+		+ j\left(\theta - \frac{\theta ^ 3}{3!} + \frac{\theta ^ 5}{5!} - ...\right) \\
+		&= \cos(\theta) + j \sin(\theta)
+	\end{align*}
+
+	\section*{سوال ۲}
+	\subsection*{الف)}
+	\paragraph*{}
+	با توجه به این که سیگنال شامل مساحتی غیر صفر است که بی‌نهایت بار تکرار شده است، انرژی سیگنال به بی‌نهایت میل می‌کند.
+
+	\paragraph*{}
+	با توجه به این که سیگنال متناوب است، توان کل سیگنال برابر توان در یکی از دوره‌های سیگنال خواهد بود:
+
+	\allowdisplaybreaks
+	\begin{align*}
+		P(y(t)) &= \frac{1}{T} \int_{-\frac{T}{2}}^{+\frac{T}{2}} \left|y(\tau)\right|^2 d \tau \\
+		&= \frac{1}{4} \int_{-2}^{+2} \left|y(\tau)\right|^2 d \tau \\
+		&= \frac{1}{4} \left( \int_{-1}^{0} \left| y(\tau)\right|^2 d \tau
+		+ \int_{0}^{1} \left|y(\tau)\right|^2 d \tau \right)\\
+		&= \frac{1}{4} \left( \int_{-1}^{0} (\tau+1)^2 d \tau
+		+ \int_{0}^{1} (-\tau+1)^2 d \tau \right) \\
+		&= \frac{1}{4} \left((\frac{1}{3}) + (\frac{1}{3})\right) \\
+		&= \frac{1}{6}
+	\end{align*}
+
+	\subsection*{ب)}
+	\paragraph*{}
+	انرژی سیگنال برابر است با:
+	\allowdisplaybreaks
+	\begin{align*}
+		E(x(t)) &= \int_{- \infty}^{\infty} |x(\tau)|^2 d\tau \\
+		&= \int_{- \infty}^{\infty} e^{-6\tau} u(\tau) d \tau \\
+		&= \int_{0}^{\infty} e^{-6 \tau} d \tau \\
+		&= \left[- \frac{1}{6} e^{6 \tau} \right]^{\infty}_{0} \\
+		&= -\frac{1}{6} \left(0 - 1\right) \\
+		&= \frac{1}{6}
+	\end{align*}
+
+	\paragraph*{}
+	با توجه به متناهی بودن انرژی سیگنال، توان سیگنال برابر صفر خواهد بود:
+
+	\begin{align*}
+		P(x(t)) &= \lim_{T \rightarrow \infty} \frac{1}{2T} \int_{-T}^{+T} |x(\tau)|^2 d\tau \\
+		&= \lim_{T \rightarrow \infty} \frac{1}{2T} \int_{0}^{+T} e^{-6 \tau} d\tau \\
+		&= \lim_{T \rightarrow \infty} \frac{1}{2T} (-\frac{1}{6} \left[e^{-6 \tau}\right]^{T}_{0}) \\
+		&= \lim_{T \rightarrow \infty} -\frac{1}{12T} (e^{-6T} - 1) \\
+		&= -0(0 - 1) \\
+		&= 0
+	\end{align*}
+
+	\section*{سوال ۳}
+	\subsection*{۱)}
+	\paragraph*{}
+	فرض می‌کنیم
+	$x_1(t) = t^2$
+	و
+	$x_2(t) = (t-1)^2$.
+	در این صورت داریم:
+	\begin{align*}
+		x_1(t) &\rightarrow y_1(t) =
+		\begin{cases}
+			\begin{matrix}
+				t^2 & t^2 < t^2 - 4t + 4 \\
+				(t-1)^2 & t^2 \ge t^2 - 4t + 4
+			\end{matrix}
+		\end{cases} \\
+		\Rightarrow
+		x_1(t) &\rightarrow y_1(t) =
+		\begin{cases}
+			\begin{matrix}
+				t^2 & t < 1 \\
+				(t-1)^2 & t \ge 1
+			\end{matrix}
+		\end{cases} \\
+	\end{align*}
+
+	همچنین برای
+	$x_2(t)$:
+	\begin{align*}
+		x_2(t) &\rightarrow y_2(t) =
+		\begin{cases}
+			\begin{matrix}
+				(t-1)^2 & t < 2 \\
+				(t-2)^2 & t \ge 2
+			\end{matrix}
+		\end{cases}
+	\end{align*}
+
+ 	در نتیجه داریم:
+	\begin{equation*}
+		x_3(t) = x_1(t) + x_2(t) = t^2 + (t-1)^2
+	\end{equation*}
+
+	و:
+
+	\begin{align*}
+		x_3(t) \rightarrow y_3(t) &=
+		\begin{cases}
+			\begin{matrix}
+				t^2 + (t-1)^2 & 2t^2 - 2t + 1 < (t-2)^2 + (t-3)^2 \\
+				(t-1)^2 + (t-2)^2 & 2t^2 - 2t + 1 \ge (t-2)^2 + (t-3)^2
+			\end{matrix}
+		\end{cases} \\
+		&=
+		\begin{cases}
+			\begin{matrix}
+				t^2 + (t-1)^2 & t < 1.5 \\
+				(t-1)^2 + (t-2)^2 & t \ge 1.5
+			\end{matrix}
+		\end{cases}
+	\end{align*}
+
+	اما:
+	\begin{align*}
+		y_1(t) + y_2(t) &=
+		\begin{cases}
+			\begin{matrix}
+				t^2 + (t-1)^2 & t < 1 \\
+				2(t-1)^2 & 1 \le t < 2 \\
+				(t-1)^2 + (t-2)^2 & t > 2
+			\end{matrix}
+		\end{cases} \\
+		& \ne y_3(t)
+	\end{align*}
+
+	در نتیجه سیستم خاصیت جمع‌پذیری ندارد و در نتیجه خطی نیست.
+
+	\subsection*{۳)}
+	\paragraph*{}
+	سیستم خاصیت همگنی دارد:
+
+	\begin{align*}
+		x_1(t) \rightarrow y_1(t) &=
+		\begin{cases}
+			\begin{matrix}
+				tx_1(t+3) & t < 0 \\
+				4\cos(t^2)x_1(\sqrt t) & t \ge 0
+			\end{matrix}
+		\end{cases} \\
+		\Rightarrow
+		x_2(t) &= \alpha x_1(t) \rightarrow y_2(t) =
+		\begin{cases}
+			\begin{matrix}
+				tx_2(t+3) & t < 0 \\
+				4\cos(t^2)x_2(\sqrt t) & t \ge 0
+			\end{matrix}
+		\end{cases} \\
+		&= \begin{cases}
+			\begin{matrix}
+				\alpha t x_1(t+3) & t < 0 \\
+				4 \alpha \cos (t^2) x_1(\sqrt t) & t \ge 0
+			\end{matrix}
+		\end{cases} \\
+		&= \alpha y_1(t)
+	\end{align*}
+
+	سیستم همچنین خاصیت جمع‌پذیری دارد:
+	\begin{align*}
+		x_1(t) \rightarrow y_1(t) &=
+		\begin{cases}
+			\begin{matrix}
+				tx_1(t+3) & t < 0 \\
+				4\cos(t^2)x_1(\sqrt t) & t \ge 0
+			\end{matrix}
+		\end{cases} \\
+		x_2(t) \rightarrow y_2(t) &=
+		\begin{cases}
+			\begin{matrix}
+				tx_2(t+3) & t < 0 \\
+				4\cos(t^2)x_2(\sqrt t) & t \ge 0
+			\end{matrix}
+		\end{cases} \\
+		\Rightarrow
+		x_3(t) = x_1(t) + x_2(t) \rightarrow y_3(t) &=
+		\begin{cases}
+			\begin{matrix}
+				tx_3(t+3) & t < 0 \\
+				4\cos(t^2)x_3(\sqrt t) & t \ge 0
+			\end{matrix}
+		\end{cases} \\
+		&=
+		\begin{cases}
+			\begin{matrix}
+				tx_1(t+3) + tx_2(t+3) & t < 0 \\
+				4\cos(t^2)x_1(\sqrt t) + 4\cos(t^2)x_2(\sqrt t) & t \ge 0
+			\end{matrix}
+		\end{cases} \\
+		&= y_1(t) + y_2(t)
+	\end{align*}
+
+	در نتیجه سیستم خطی است.
+
+	\subsection*{۴)}
+	\paragraph*{}
+	سیستم به وضوح علّی نیست. زیرا به عنوان مثال
+	$y(-2) = x(-1)$.
+	در نتیجه خروجی سیستم وابستگی به آینده دارد.
+
+
+	\paragraph*{}
+	برای بررسی تغییرپذیری با زمان، داریم:
+	\begin{align*}
+		x_1(t) &\rightarrow y_1(t) = x_1(\frac{t}{2}) \\
+		x_2(t) = x_1(t - t_0) &\rightarrow y_2(t) = x_2(\frac{t}{2}) = x_1(\frac{t}{2} - t_0) \\
+		y_1(t-t_0) &= x_1(\frac{t - t_0}{2}) \ne y_2(t)
+	\end{align*}
+
+	درنتیجه سیستم تغییرپذیر با زمان است.
+
+	\subsection*{۵)}
+	\paragraph*{}
+
+	سیستم علّی است. زیرا برای محاسبه
+	$y(t)$
+	تنها به
+	$x(t-2)$
+	نیاز داریم و به آینده وابستگی نداریم. مقدار
+	$u(t+2)$
+	نیز به ازای هر
+	$t$
+	مشخص است.
+	\paragraph*{}
+
+	برای بررسی تغییرپذیری با زمان، داریم:
+	\begin{align*}
+		x_1(t) &\rightarrow y_1(t) = x_1(t - 2)u(t+2) \\
+		x_2(t) = x_1(t - t_0) &\rightarrow y_2(t) = x_2(t-2)u(t+2) = x_1(t-2-t_0)u(t+2) \\
+		\Rightarrow y_1(t-t_0) &= x_1(t-2-t_0)u(t+2-t_0) \ne y_2(t)
+	\end{align*}
+
+	در نتیجه سیستم تغییرپذیر با زمان است.
+
+	\subsection*{۶)}
+	\paragraph*{}
+	داریم:
+	\begin{equation*}
+		y(t) = \int_{- \infty}^{-t} x(- \tau) d \tau = \int_{t}^{\infty} x(\tau) d\tau
+	\end{equation*}
+
+	چون انتگرال را تا بی‌نهایت محاسبه می‌کنیم، پس به ازای هر $t$ به مقدار سیگنال در زمان‌های جلوتر از t نیاز داریم. درنتیجه سیستم علّی نیست.
+
+	\paragraph*{}
+	برای بررسی تغییرپذیری با زمان، داریم:
+
+	\begin{align*}
+		x_1(t) \rightarrow y_1(t) &= \int_{t}^{\infty} x_1(\tau) d\tau \\
+		x_2(t) = x_1(t-t_0) \rightarrow y_2(t) &= \int_{t}^{\infty} x_2(\tau) d\tau
+		= \int_{t}^{\infty} x_1(\tau - t_0) d\tau \\
+		&= \int_{t - t_0}^{\infty} x_1(\tau) d\tau \\
+		y_1(t-t_0) &= \int_{t-t_0}^{\infty} x_1(\tau) d\tau \\
+		&= y_2(t)
+	\end{align*}
+
+	در نتیجه، سیستم تغییر ناپذیر با زمان است.
+
+	\subsection*{۷)}
+	\paragraph*{}
+	سیستم وارون پذیر است و می‌توان سیستم زیر را به عنوان معکوس آن در نظر گرفت:
+
+	\begin{equation*}
+		y_i(t) =
+		\begin{cases}
+			\begin{matrix}
+				y(t + 2) & t \ge 0 \\
+				y(t - 2) & t < 0
+			\end{matrix}
+		\end{cases}
+	\end{equation*}
+
+	درواقع همه قسمت‌های سیگنال
+	$x(t)$
+	عینا در
+	$y(t)$
+	نیز وجود دارد و تنها به مقدار ثابتی جابه‌جا شده‌اند. با اعمال معکوس این جابه‌جایی، می‌توان سیگنال
+	$x(t)$
+	را از
+	$y(t)$
+	به دست آورد.
+
+
+	\subsection*{۸)}
+	\paragraph*{}
+	سیستم وارون پذیر است و می‌توان سیستم زیر را به عنوان معکوس آن در نظر گرفت:
+
+	\begin{equation*}
+		y_i(t) =
+		\begin{cases}
+			\begin{matrix}
+				+\sqrt{y(t)} & y(t) > 0 \\
+				y(t) & y(t) \le 0
+			\end{matrix}
+		\end{cases}
+	\end{equation*}
+
+	\paragraph*{}
+	در واقع اگر خروجی سیستم داده شده در سوال، مثبت باشد، می‌دانیم که سیگنال داده شده نیز مثبت بوده است و از ضابطه اول استفاده شده است. در نتیجه برای به دست آوردن سیگنال ورودی (یا همان $x(t)$)، کافیست مقدار مثبت ریشه دوم سیگنال خروجی (یا همان $y(t)$) را در نظر بگیریم.
+
+	\paragraph*{}
+	همچنین اگر سیگنال خروجی منفی باشد، می‌دانیم که از ضابطه دوم استفاده شده و بنابراین سیگنال خروجی، همان سیگنال ورودی است.
+
+	\subsection*{۹)}
+	به ازای
+	$x(t) = \sin^2(t)$،
+	خواهیم داشت
+	$y(t) = \frac{\sin(\sin^2(t) + 2t)}{\sin^2(t-1)}$
+	و بنابراین
+	$ |x(t)| \le 1$.
+	اما داریم
+	\begin{equation*}
+		\lim_{t \rightarrow 1} y(t) = \lim_{t \rightarrow 1} \frac{\sin(\sin^2(t) + 2t)}{\sin^2(t-1)} = \infty
+	\end{equation*}
+
+	در نتیجه سیگنال پایدار نیست.
+
+	\subsection*{۱۰)}
+	به ازای
+	$x(t) = \sin(t)$،
+	داریم
+	$|x(t)| < 1 $
+	و
+	\begin{align*}
+		y(t) &=
+		\begin{cases}
+			\begin{matrix}
+				t\sin(t) & t < |\sin(t)| \\
+				\sin(-t) & t \ge |\sin(t)|
+			\end{matrix}
+		\end{cases} \\
+		&=
+		\begin{cases}
+			\begin{matrix}
+				t\sin(t) & t < 0 \\
+				\sin(-t) & t \ge 0
+			\end{matrix}
+		\end{cases}
+	\end{align*}
+
+	اما داریم:
+	\begin{equation*}
+		\lim_{t \rightarrow -\infty} y(t) = \lim_{t \rightarrow -\infty} t\sin(t)
+		= -\infty
+	\end{equation*}
+
+	در نتیجه سیستم پایدار نیست.
+
+	\paragraph*{}
+	برای بررسی علّی بودن، حالت‌های زیر را برای
+	$y(t)$
+	درنظر می‌گیریم:
+
+	۱. شرط
+	$t < |x(t)|$
+	برقرار باشد: در این صورت
+	$y(t) = tx(t)$
+	که به وضوح وابستگی به آینده ندارد.
+
+	۲. شرط
+	$t \ge |x(t)|$
+	برقرار باشد: در این صورت
+	$t \ge 0$
+	و
+	$y(t) = x(-t)$
+	و بنابراین خروجی باز هم وابستگی به آینده ندارد.
+
+	در نتیجه، سیستم علّی است.
+\end{document}

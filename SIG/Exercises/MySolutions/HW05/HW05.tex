@@ -1,0 +1,147 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{xepersian}
+
+\settextfont{XB Niloofar}
+
+\title{سیگنال‌ها و سیستم‌ها - دکتر سلیمی‌بدر}
+\author{امیرحسین منصوری - ۹۹۲۴۳۰۶۹}
+\date{تمرین سری ۵}
+
+\begin{document}
+	\maketitle
+
+	\section*{سوال ۱}
+
+	\begin{align*}
+		x(t) &= 2 \times \frac{e^{j(4)t} + e^{-j(4)t}}{2}
+		+ \frac{e^{j(2)t} - e^{-j(2)t}}{2j} \\
+		\Rightarrow
+		y(t) &= H(4)e^{j(4)t} + H(-4)e^{j(-4)t} + \frac{1}{2j}H(2)e^{j(2)t} + \frac{1}{2j}H(-2)e^{j(-2)t} \\
+		&= e^{-6j}e^{2jt} - e^{6j}e^{-2jt} \\
+		&= 2j \times \frac{e^{(2t-6)j} - e^{-(2t-6)j}}{2j} \\
+		&= 2j \sin(2t-6)
+	\end{align*}
+
+	\section*{سوال ۲}
+
+	\begin{align*}
+		\xrightarrow{I.F.T} y(t) &= \frac{1}{2\pi} \int_{-\infty}^{\infty}
+		Y(\omega) e^{j\omega t} d\omega \\
+		&= \frac{1}{2\pi} \int_{-2}^{2} e^{j\omega t} d\omega \\
+		&= \frac{2\sin(t)\cos(t)}{\pi t}
+		= x(t)\cos(t) \\
+		\Rightarrow
+		x(t) &= \frac{2\sin(t)}{\pi t} = \frac{2}{\pi} sinc(\frac{t}{\pi})
+	\end{align*}
+
+	\section*{سوال ۳}
+	\paragraph*{معکوس پذیری}
+	از آنجایی که به عنوان مثال
+	$H(\frac{\pi}{2}) = 0$،
+	بنابراین
+	$\frac{1}{H(\omega)}$
+	که پاسخ فرکانسی سیستم معکوس است، در بعضی نقاط تعریف نشده است. بنابراین سیستم معکوس‌پذیر نیست.
+
+	\paragraph*{پایداری}
+	برای پایداری باید شرط زیر به ازای یک
+	$L_1$
+	برقرار باشد.
+
+	\begin{align*}
+		\int_{-\infty}^{\infty} h(t) dt &\le L_1 \\
+		\Rightarrow
+		H(0) &\le L_1 \\
+		\Rightarrow
+		1 &\le L_1
+	\end{align*}
+	با انتخاب هر
+	$L_1 \ge 1$
+	شرط بالا برقرار می‌شود. بنابراین سیستم پایدار است.
+
+	\section*{سوال ۴}
+	\paragraph*{}
+	سیگنال پالس مربعی با عرض $w$ را با
+	$y_w(t)$
+	نشان می‌دهیم. داریم
+
+	\begin{align*}
+		\int_{0}^{\infty} \left(\frac{\sin t}{\pi t}\right)^2 dt
+		&= \frac{1}{2 \pi^2} \int_{-\infty}^{+\infty} \left|\frac{\sin t}{t}\right| ^ 2 dt \\
+		&= \frac{1}{2 \pi^2} \int_{-\infty}^{+\infty} \left|x(t)\right| ^ 2 dt \\
+		&= \frac{1}{4 \pi^3} \int_{-\infty}^{+\infty} \left|X(\omega)\right| ^ 2 d\omega \\
+	\end{align*}
+
+	برای محاسبه
+	$X(\omega)$
+	داریم
+
+	\begin{align*}
+		x(t) &= \pi \times \frac{2}{2\pi} sinc(\frac{2}{2\pi}t) \\
+		\Rightarrow
+		X(\omega) &= \pi y_2(\omega) \\
+		\Rightarrow
+		\int_{0}^{\infty} \left(\frac{\sin t}{\pi t}\right)^2 dt
+		&= \frac{1}{4 \pi} \int_{-\infty}^{+\infty} \left|y_2(\omega)\right| ^ 2 d\omega \\
+		&= \frac{1}{4 \pi} \int_{-1}^{+1} d\omega \\
+		&= \frac{1}{2 \pi}
+	\end{align*}
+
+	\section*{سوال ۵}
+	\paragraph*{}
+	با استفاده از خاصیت کانوولوشن تبدیل فوریه داریم
+	\begin{align*}
+		Y(\omega) &= X(\omega)H(\omega) \\
+		\Rightarrow
+		Y(0) &= X(0)H(0) \\
+		&= \left(\int_{-\infty}^{\infty} x(t) dt\right)\left(\frac{1}{2+j(0)}\right) \\
+		&= \left(6\right)\left(\frac{1}{2}\right) = 3
+	\end{align*}
+
+	\section*{سوال ۶}
+
+	\begin{align*}
+		X(\Omega) &= \sum_{n=-\infty}^{+\infty} x[n]e^{-j\Omega n} \\
+		&= \sum_{n=1}^{+\infty} 3^{-2n-2}e^{-j\Omega n} \\
+		&= \frac{1}{9} \sum_{n=1}^{+\infty} \left(\frac{e^{-j\Omega}}{9}\right)^n \\
+		&= \frac{1}{9} \times \frac{1}{1-\frac{e^{-j\Omega}}{9}} \\
+		&= \frac{1}{9-e^{-j\Omega}}
+	\end{align*}
+
+	انتگرال بالا به سادگی از روی شکل نمودار به دست می‌آید.
+
+	\section*{سوال ۸}
+	\paragraph*{}
+	تعریف می‌کنیم
+	$z[n] = 1$.
+	داریم
+	\begin{equation*}
+		Z(\Omega) = \sum_{k=-\infty}^{\infty} 2\pi \delta(\Omega-2\pi k)
+	\end{equation*}
+
+	می‌دانیم
+	$x[n] = z_{(8)}[n]$.
+	بنابراین
+	\begin{equation*}
+		X(\Omega) = Z(8\Omega) = \sum_{k=-\infty}^{\infty} 2\pi \delta(\Omega-\frac{2\pi}{8} k)
+	\end{equation*}
+	از خاصیت کانوولوشن تبدیل فوریه می‌دانیم
+	\begin{equation*}
+		Y(\Omega) = X(\Omega)H(\Omega) = 2\pi \left(\delta(\Omega + \frac{\pi}{4} - 2\pi k) + \delta(\Omega - 2\pi k) + \delta(\Omega - \frac{\pi}{4}  - 2\pi k)\right)
+	\end{equation*}
+
+	درواقع
+	$H(\Omega)$
+	یک فیلتر پایین‌گذر است و در هر دوره تناوب، تنها ۳ ضربه را از
+	$X(\Omega)$
+	نگه می‌دارد.
+
+	\paragraph*{}
+	در نهایت داریم
+	\begin{align*}
+		y[n] &= \frac{1}{2\pi} \int_{-\pi}^{\pi} Y(\Omega) e^{j\Omega n} d\Omega \\
+		&= \frac{1}{2\pi} (2\pi + 2\pi + 2\pi) \\
+		&= 3
+	\end{align*}
+\end{document}
