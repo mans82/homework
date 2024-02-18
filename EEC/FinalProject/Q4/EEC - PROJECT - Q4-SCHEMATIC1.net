@@ -1,0 +1,9 @@
+* source EEC - PROJECT - Q4
+R_R1         0 N00145  5  
+R_R2         N00204 N00145  10  
+G_G1         0 N00145 N00204 N00145 0.5
+X_U2         N00145 N00508 Sw_tClose PARAMS: tClose=0 ttran=1u Rclosed=0.01
++  Ropen=1Meg
+C_C1         0 N00508  20u  
+V_V1         N00204 0  
++PULSE 0 2 0 1m 1m 2m 4m

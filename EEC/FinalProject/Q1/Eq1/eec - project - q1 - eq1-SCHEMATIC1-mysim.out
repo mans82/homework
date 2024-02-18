@@ -1,0 +1,88 @@
+
+**** 01/04/22 21:58:42 ********* PSpice 9.2 (Mar 2000) ******** ID# 1 ********
+
+ ** Profile: "SCHEMATIC1-mysim"  [ E:\EEC Simulations\Project\Q1\Eq1\eec - project - q1 - eq1-SCHEMATIC1-mysim.sim ] 
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "eec - project - q1 - eq1-SCHEMATIC1-mysim.sim.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Program Files\Orcad\PSpice\PSpice.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 10 0 
+.PROBE V(*) I(*) W(*) D(*) NOISE(*) 
+.INC ".\eec - project - q1 - eq1-SCHEMATIC1.net" 
+
+
+
+**** INCLUDING "eec - project - q1 - eq1-SCHEMATIC1.net" ****
+* source EEC - PROJECT - Q1 - EQ1
+E_U1         N00168 0 VALUE {LIMIT(V(0,N00057)*1E6,-15V,+15V)}
+E_U3         N00844 0 VALUE {LIMIT(V(0,N00739)*1E6,-15V,+15V)}
+E_U4         N00950 0 VALUE {LIMIT(V(0,N00948)*1E6,-15V,+15V)}
+R_R8         N00844 N00948  8k  
+R_R5         N00272 N00948  1k  
+C_C2         N00274 N00272  1m  
+R_R4         N00739 N00844  4k  
+R_R1         N00950 N00057  1k  
+R_R6         N00948 N00950  8k  
+E_U2         N00272 0 VALUE {LIMIT(V(0,N00274)*1E6,-15V,+15V)}
+C_C1         N00057 N00168  1m  
+R_R2         N00168 N00274  1k  
+V_V1         N01273 0  
++SIN 0 -1 0.318Hz 0 0 295
+R_R3         N00168 N00739  1k  
+R_R7         N01273 N00739  4k  
+
+**** RESUMING "eec - project - q1 - eq1-SCHEMATIC1-mysim.sim.cir" ****
+.END
+
+**** 01/04/22 21:58:42 ********* PSpice 9.2 (Mar 2000) ******** ID# 1 ********
+
+ ** Profile: "SCHEMATIC1-mysim"  [ E:\EEC Simulations\Project\Q1\Eq1\eec - project - q1 - eq1-SCHEMATIC1-mysim.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(N00057) 113.3E-15 (N00168)-113.3E-09 (N00272)     .1133 (N00274)-113.3E-09     
+
+(N00739) 906.3E-09 (N00844)    -.9063 (N00948)-113.3E-21 (N00950) 113.3E-15     
+
+(N01273)     .9063 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1        -2.266E-04
+
+    TOTAL POWER DISSIPATION   2.05E-04  WATTS
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .05
+

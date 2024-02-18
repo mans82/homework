@@ -1,0 +1,83 @@
+
+**** 01/07/22 17:35:50 ********* PSpice 9.2 (Mar 2000) ******** ID# 1 ********
+
+ ** Profile: "SCHEMATIC1-V_oc"  [ C:\Users\Amir and Amin\Desktop\Elec_FinalProject\Soal2_right\V_oc\soal2_right-schematic1-v_oc.sim ]
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "soal2_right-schematic1-v_oc.sim.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Program Files\Orcad\PSpice\PSpice.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 1000ns 0 
+.PROBE V(*) I(*) W(*) D(*) NOISE(*) 
+.INC ".\soal2_right-SCHEMATIC1.net" 
+
+
+
+**** INCLUDING soal2_right-SCHEMATIC1.net ****
+* source SOAL2_RIGHT
+R_R1         N00321 N00183  3  
+R_R2         N00294 N00321  2  
+R_R3         N00719 N00294  1  
+I_I1         N00719 N00321 DC 5  
+R_R4         0 N00267  3  
+R_R5         N00267 N00580  2  
+X_H1    N00183 N00580 N00294 N00267 SCHEMATIC1_H1 
+G_G1         N00719 0 N00321 N00294 4
+
+.subckt SCHEMATIC1_H1 1 2 3 4  
+H_H1         3 4 VH_H1 2
+VH_H1         1 2 0V
+.ends SCHEMATIC1_H1
+
+**** RESUMING soal2_right-schematic1-v_oc.sim.cir ****
+.END
+
+**** 01/07/22 17:35:50 ********* PSpice 9.2 (Mar 2000) ******** ID# 1 ********
+
+ ** Profile: "SCHEMATIC1-V_oc"  [ C:\Users\Amir and Amin\Desktop\Elec_FinalProject\Soal2_right\V_oc\soal2_right-schematic1-v_oc.sim ]
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(N00183)  -68.0000 (N00267)  -72.0000 (N00294)  -68.0000 (N00321)  -62.0000     
+
+(N00580)  -68.0000 (N00719)  -97.0000 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    X_H1.VH_H1   2.000E+00
+
+    TOTAL POWER DISSIPATION   0.00E+00  WATTS
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME            0.00
+

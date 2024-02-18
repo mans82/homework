@@ -1,0 +1,14 @@
+* source EEC-HW03-Q4
+G_G1         N00006 N00747 N00775 N00747 1.5
+V_V1         N00693 0 6
+R_R4         N00006 N01714  1  
+R_R5         N00006 N00693  4  
+X_H1    N01714 0 N00747 N00693 SCHEMATIC1_H1 
+R_R6         N00747 N00775  1  
+R_R7         N00006 N00775  2  
+I_I1         N00775 0 DC 6  
+
+.subckt SCHEMATIC1_H1 1 2 3 4  
+H_H1         3 4 VH_H1 4
+VH_H1         1 2 0V
+.ends SCHEMATIC1_H1

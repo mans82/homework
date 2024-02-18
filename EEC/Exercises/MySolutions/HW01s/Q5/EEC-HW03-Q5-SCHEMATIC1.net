@@ -1,0 +1,14 @@
+* source EEC-HW03-Q5
+R_R2         N02694 N03903  1  
+R_R4         N03081 0  1  
+V_V2         N02748 N03387 18
+R_R1         N02694 N02748  2  
+R_R3         N02694 N03081  2  
+I_I2         N03387 N03081 DC 4  
+G_G2         0 N02694 N03081 0 1.5
+X_H2    N03903 N03387 0 N02748 SCHEMATIC1_H2 
+
+.subckt SCHEMATIC1_H2 1 2 3 4  
+H_H2         3 4 VH_H2 4
+VH_H2         1 2 0V
+.ends SCHEMATIC1_H2

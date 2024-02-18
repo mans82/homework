@@ -1,0 +1,55 @@
+
+**** 01/05/22 23:38:09 ********* PSpice 9.2 (Mar 2000) ******** ID# 1 ********
+
+ ** Profile: "SCHEMATIC1-V_oc"  [ C:\USERS\AMIR AND AMIN\DESKTOP\ELEC_FINALPROJECT\Soal2_right\V_oc\soal2_right-SCHEMATIC1-V_oc.sim ]
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "soal2_right-SCHEMATIC1-V_oc.sim.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Program Files\Orcad\PSpice\PSpice.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 1000ns 0 
+.PROBE V(*) I(*) W(*) D(*) NOISE(*) 
+.INC ".\soal2_right-SCHEMATIC1.net" 
+
+
+
+**** INCLUDING soal2_right-SCHEMATIC1.net ****
+* source SOAL2_RIGHT
+R_R1         N00321 N00183  3  
+R_R2         N00294 N00321  2  
+R_R3         N00719 N00294  1  
+I_I1         N00719 N00321 DC 5  
+R_R4         N00750 N00267  3  
+R_R5         N00267 N00580  2  
+X_H1    N00183 N00580 N00294 N00267 SCHEMATIC1_H1 
+G_G1         N00719 N00750 N00321 N00294 4
+
+.subckt SCHEMATIC1_H1 1 2 3 4  
+H_H1         3 4 VH_H1 2
+VH_H1         1 2 0V
+.ends SCHEMATIC1_H1
+
+**** RESUMING soal2_right-SCHEMATIC1-V_oc.sim.cir ****
+.END
+
+ERROR -- Node N00321 is floating
+ERROR -- Node N00183 is floating
+ERROR -- Node N00294 is floating
+ERROR -- Node N00719 is floating
+ERROR -- Node N00750 is floating
+ERROR -- Node N00267 is floating
+ERROR -- Node N00580 is floating

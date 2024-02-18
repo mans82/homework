@@ -22,3 +22,4 @@ This repository is only for learning purposes. I will NOT be responsible for any
 * Operating Systems (OS)
 * Algorithm Design (AD)
 * Signals and Systems (SIG)
+* Electric and Electronic Circuits (EEC)

@@ -1,0 +1,14 @@
+* source I_SC
+R_R2         N00294 N00321  2  
+R_R3         N00719 N00294  1  
+I_I1         N00719 N00321 DC 5  
+R_R4         0 N00267  3  
+R_R5         N00267 N00580  2  
+X_H1    0 N00580 N00294 N00267 SCHEMATIC1_H1 
+G_G1         N00719 0 N00321 N00294 4
+R_R1         N00321 0  3  
+
+.subckt SCHEMATIC1_H1 1 2 3 4  
+H_H1         3 4 VH_H1 2
+VH_H1         1 2 0V
+.ends SCHEMATIC1_H1

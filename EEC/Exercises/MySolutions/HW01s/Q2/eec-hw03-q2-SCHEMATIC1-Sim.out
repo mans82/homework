@@ -1,0 +1,72 @@
+
+**** 10/28/21 23:39:19 ********* PSpice 9.2 (Mar 2000) ******** ID# 1 ********
+
+ ** Profile: "SCHEMATIC1-Sim"  [ e:\eec simulations\hw01s\q2\eec-hw03-q2-SCHEMATIC1-Sim.sim ] 
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "eec-hw03-q2-SCHEMATIC1-Sim.sim.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Program Files\Orcad\PSpice\PSpice.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.PROBE V(*) I(*) W(*) D(*) NOISE(*) 
+.INC ".\eec-hw03-q2-SCHEMATIC1.net" 
+
+
+
+**** INCLUDING eec-hw03-q2-SCHEMATIC1.net ****
+* source EEC-HW03-Q2
+R_R1         N00175 N00236  50  
+G_G1         0 N00236 N00175 0 0.01
+R_R2         N00175 N00209  20  
+I_I1         0 N00175 DC 5  
+R_R3         N00209 N00236  30  
+E_E1         N00209 0 N00175 0 0.4
+
+**** RESUMING eec-hw03-q2-SCHEMATIC1-Sim.sim.cir ****
+.END
+
+**** 10/28/21 23:39:19 ********* PSpice 9.2 (Mar 2000) ******** ID# 1 ********
+
+ ** Profile: "SCHEMATIC1-Sim"  [ e:\eec simulations\hw01s\q2\eec-hw03-q2-SCHEMATIC1-Sim.sim ] 
+
+
+ ****     SMALL SIGNAL BIAS SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(N00175)  148.1500 (N00209)   59.2590 (N00236)  120.3700 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+
+    TOTAL POWER DISSIPATION   0.00E+00  WATTS
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .06
+

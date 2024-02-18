@@ -1,0 +1,83 @@
+
+**** 01/07/22 17:36:46 ********* PSpice 9.2 (Mar 2000) ******** ID# 1 ********
+
+ ** Profile: "SCHEMATIC1-I_sc"  [ c:\users\amir and amin\desktop\elec_finalproject\soal2_right\i_sc\i_sc-schematic1-i_sc.sim ] 
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "i_sc-schematic1-i_sc.sim.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Program Files\Orcad\PSpice\PSpice.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 1000ns 0 
+.PROBE V(*) I(*) W(*) D(*) NOISE(*) 
+.INC ".\i_sc-SCHEMATIC1.net" 
+
+
+
+**** INCLUDING i_sc-SCHEMATIC1.net ****
+* source I_SC
+R_R2         N00294 N00321  2  
+R_R3         N00719 N00294  1  
+I_I1         N00719 N00321 DC 5  
+R_R4         0 N00267  3  
+R_R5         N00267 N00580  2  
+X_H1    0 N00580 N00294 N00267 SCHEMATIC1_H1 
+G_G1         N00719 0 N00321 N00294 4
+R_R1         N00321 0  3  
+
+.subckt SCHEMATIC1_H1 1 2 3 4  
+H_H1         3 4 VH_H1 2
+VH_H1         1 2 0V
+.ends SCHEMATIC1_H1
+
+**** RESUMING i_sc-schematic1-i_sc.sim.cir ****
+.END
+
+**** 01/07/22 17:36:46 ********* PSpice 9.2 (Mar 2000) ******** ID# 1 ********
+
+ ** Profile: "SCHEMATIC1-I_sc"  [ c:\users\amir and amin\desktop\elec_finalproject\soal2_right\i_sc\i_sc-schematic1-i_sc.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(N00267)  -31.2000 (N00294)    0.0000 (N00321)    6.0000 (N00580)    0.0000     
+
+(N00719)  -29.0000 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    X_H1.VH_H1   1.560E+01
+
+    TOTAL POWER DISSIPATION   0.00E+00  WATTS
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME            0.00
+

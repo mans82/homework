@@ -1,0 +1,17 @@
+** Profile: "SCHEMATIC1-V_oc"  [ C:\Users\Amir and Amin\Desktop\Elec_FinalProject\Soal2_right\V_oc\soal2_right-schematic1-v_oc.sim ] 
+
+** Creating circuit file "soal2_right-schematic1-v_oc.sim.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Program Files\Orcad\PSpice\PSpice.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 1000ns 0 
+.PROBE V(*) I(*) W(*) D(*) NOISE(*) 
+.INC ".\soal2_right-SCHEMATIC1.net" 
+
+
+.END
